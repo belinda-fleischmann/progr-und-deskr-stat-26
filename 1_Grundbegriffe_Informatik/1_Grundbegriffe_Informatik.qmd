@@ -808,19 +808,29 @@ R und Visual Studio Code
 **Aufgaben**
 
 # Aufgaben bis nächste Woche
-\setstretch{1.8}
+\setstretch{1.5}
 \small
 
 1. [\textcolor{linkblue}{R}](https://cran.r-project.org/) installieren.
 2. [\textcolor{linkblue}{VSCode}](https://code.visualstudio.com/) installieren.
-3. VSCode für R startklar machen ([\textcolor{linkblue}{Online-Dokumentation}](https://code.visualstudio.com/docs/languages/r)).
-4. Mit dem eigenen oder Labor-Rechner vertraut machen. \small \justifying \setstretch{1.6}
-   - \small Wie viel Festplatten- und Arbeitsspeicher besitzt der Rechner? \setstretch{1.6} 
-   - Welches Betriebssystem in welcher Version ist installiert?
-   - Erstellen Sie einen Ordner für alle Materialien und Übungen dieses Kurses (z.B. 'PDS_2026') an einem selbst gewählten Speicherort.
-   - Wie lautet die vollständige Speicheradresse (Pfad) zu diesem Kursordner?
-   - Laden Sie die Dateien "Beispiel_Datenanalyseskript_1.R" und "Beispieldaten.csv" herunter und speichern Sie diese in Ihrem Kursordner.
-   - Testen Sie, mit welchen Programmen sich diese Dateien jeweils öffnen lassen und mit welchen nicht.
+3. VSCode für R startklar machen ([\textcolor{linkblue}{R in Visual Studio Code}](https://code.visualstudio.com/docs/languages/r)).
+4. Mit dem eigenen oder Labor-Rechner vertraut machen. \small \justifying
+    a) \small Wie viel Festplatten- und Arbeitsspeicher (RAM) besitzt der Rechner? Notieren Sie die Werte in GB.
+    b) Welches Betriebssystem in welcher Version ist installiert? (z.B. Windows 11, macOS 14.5, Ubuntu 22.04)
+    c) Erstellen Sie einen Ordner für alle Materialien und Übungen dieses Kurses (z.B. "PDS\_2026") an einem selbst gewählten Speicherort auf Ihrer Festplatte (nicht auf dem Desktop oder in Downloads).
+    d) Wie lautet der vollständige absolute Pfad zu diesem Kursordner? (z.B. "C:\\Users\\IhrName\\Dokumente\\PDS_2026" oder "/home/username/Documents/PDS\_2026")
+    e) Laden Sie die Dateien "Beispiel_Datenanalyseskript_1.R" und "Beispieldaten.csv" herunter und speichern Sie diese in Ihrem Kursordner.
+    f) Testen Sie, mit welchen Programmen sich diese Dateien jeweils öffnen lassen und mit welchen nicht. Welche Programme zeigen den Inhalt sinnvoll lesbar an?
 
+# Aufgaben bis nächste Woche
+\setstretch{1.5}
+\small
+
+5. Erkunden Sie die VSCode User Interface und bearbeiten Sie nachstehenden Fragen (Tipp: Konsultieren Sie dafür die Online-Dokumentation [\textcolor{linkblue}{VSC User interface}](https://code.visualstudio.com/docs/getstarted/userinterface)): \small \justifying
+    a) \small Welche verschiedenen Views (Ansichten) können in der Activity Bar (vertikale Leiste ganz links) ausgewählt werden? Listen Sie mindestens fünf auf.
+    b)  Wählen Sie in der \textit{Activity Bar} den \textit{Explorer} aus. Wie können Sie Ihren Kursordner in VSCode öffnen, sodass dessen Inhalt in der Primary Sidebar (Hauptseitenleiste) dauerhaft sichtbar ist?
+    c) Installieren Sie die R Extension für VSCode, falls noch nicht geschehen. Wählen Sie in der \textit{Activity Bar} die \textit{R Extension} aus. Welche Bereiche und Funktionen werden nun in der Primary Sidebar angezeigt?
+    d) Standardmäßig befindet sich das Panel (mit Terminal, R-Console, etc.) am unteren Bildschirmrand. Wie können Sie es so konfigurieren, dass das Panel stattdessen rechts (oder links) vertikal angeordnet ist?
+    e) Wie können Sie eine Secondary Sidebar öffnen und wofür könnte diese nützlich sein?
 
 # Referenzen
