@@ -1,0 +1,65 @@
+---
+title: "R, VSC, Arithmetik und Variablen"
+format:
+  pdf:
+    header-includes: |
+      \rhead{Übungsblatt zu (2)}
+      \fancypagestyle{plain}{% redefine plain to be same as fancy
+        \rhead{Übungsblatt zu (2)}
+      }
+---
+
+\setstretch{1.4}
+
+## Grundlagen der R-Console
+
+\begin{enumerate}
+  \item Öffnen Sie die Help-Page für die Funktion \texttt{print()} und bearbeiten Sie nachstehende Fragen:
+    \begin{enumerate}
+      \item Was ist der Unterschied zwischen den Befehlen \texttt{print(x="Hallo Welt")} und \texttt{print("Hallo Welt")}?
+      \item Was kann über das Argument \texttt{digits} spezifiziert werden? Führen Sie ein Beispiel aus dem Abschnitt \textbf{Examples} der Help-Page aus und beschreiben Sie, was passiert.
+      \item Was ist der Unterschied zwischen den Befehlen \texttt{print(pi)} und \texttt{print(pi, digits=2)}?
+    \end{enumerate}
+  \item Geben Sie einen unvollständigen Befehl in die Console ein und drücken Sie die \textbf{Enter}-Taste. Probieren Sie mindestens zwei der folgenden Beispiele aus: \texttt{print("Hello"}, \texttt{sqrt(4}, \texttt{x <-} oder \texttt{sqrt(1 +}.
+    \begin{enumerate}
+      \item Was verändert sich am Console-Prompt (dem Eingabezeichen)?
+      \item Wie können Sie den normalen Prompt \texttt{>} wiederherstellen? Nennen Sie zwei Möglichkeiten.
+    \end{enumerate}
+  \item Geben Sie die nachstehenden fehlerhaften Befehle in die Console ein und erläutern Sie jeweils die resultierende Fehlermeldung. Was ist der Grund für den Fehler?
+    \begin{enumerate}
+      \item \texttt{tralala(5)}
+      \item \texttt{mean + 3}
+      \item \texttt{sum("Hello World!")}
+    \end{enumerate}
+\end{enumerate}
+
+## R-Skripte und Code-Ausführung
+\begin{enumerate}
+  \item Erstellen Sie ein neues R-Skript mit dem Namen \textit{uebung\_02.R} und dokumentieren Sie darin alle bisher eingeführten R-Befehle mit aussagekräftigen Kommentaren. Speichern Sie das Skript in Ihrem lokalen Kursordner.
+    \begin{enumerate}
+      \item Wie lautet der vollständige Pfad für das R-Skript?
+      \item Welche zwei Möglichkeiten gibt es, alle Befehle des Skripts auszuführen? Worin unterscheiden sie sich?
+      \item Welche zwei Möglichkeiten gibt es, einzelne Zeilen oder markierte Codeabschnitte aus einem Skript in der Console auszuführen? Beschreiben Sie jeweils die Tastenkombination bzw. den Menübefehl.
+    \end{enumerate}
+  \item Schreiben Sie ein R Skript, das nur den Befehl \texttt{2 + 2} enthält. Führen Sie das Skript mit dem Befehl \texttt{source("pfad/zu/ihrem/skript.R")} aus (Tipp: Verwenden Sie den korrekten Pfad zu Ihrer Datei!). Wird der Befehl ausgeführt? Warum erscheint keine Ergebnisausgabe in der R Console?
+  \item Geben Sie nun denselben Befehl \texttt{2 + 2} direkt in die R-Console ein. Was ist nun anders? Erklären Sie den Unterschied zwischen der Ausführung via \texttt{source()} und der direkten Eingabe in die Console.
+\end{enumerate}
+
+## Arithmetik und Operatorpräzedenz
+\begin{enumerate}
+  \item Erstellen Sie eine arithmetische Berechnung, die mindestens drei verschiedene Operatoren verwendet.
+  \item Führen Sie mindestens zwei mathematische Funktionen aus \textbf{Base R} aus.
+  \item Erstellen Sie eine logische Operation, die den logischen Wert \texttt{FALSE} ergibt.
+  \item Erstellen Sie eine logische Operation, die den logischen Wert \texttt{TRUE} ergibt.
+  \item Erläutern Sie den Begriff der Operatorpräzedenz anhand eines selbstgewählten Beispiels (z.B. \texttt{2 + 3 * 4}). Wie kann die Operatorpräzedenzreihenfolge aus der R-Console heraus nachgeschlagen werden?
+\end{enumerate}
+
+## Variablen und Workspace
+\begin{enumerate}
+  \item Öffnen Sie den R Workspace-Browser im VSCode User Interface (in der Primary Sidebar unter der R Extension). Führen Sie Zeile für Zeile die Befehle aus dem Greta-Beispiel aus und beobachten Sie, wie neu definierte Variablen im Workspace erscheinen. Notieren Sie sich, welche Informationen zu jeder Variable angezeigt werden.
+  \item Im Workspace-Browser wird neben jeder Variable ein Symbol (z.B. ein Kreuz oder Mülleimer) angezeigt. Was passiert, wenn Sie darauf klicken? Welcher R-Befehl würde denselben Effekt erzielen?
+  \item Definieren Sie zwei Variablen \texttt{x} und \texttt{y} unabhängig voneinander mit dem Wert 7 und zeigen Sie, dass beide unterschiedliche Speicheradressen referenzieren.
+  \item Definieren Sie nun \texttt{x} mit dem Wert 7 und anschließend \texttt{y} abhängig von \texttt{x} (also mit \texttt{y <- x}) und zeigen Sie, dass beide dieselbe Speicheradresse referenzieren.
+  \item Demonstrieren Sie anhand eines selbstgewählten Beispiels, dass R case-sensitive ist.
+  \item Erstellen Sie eine Variable mit einem ungültigen Namen (z.B. \texttt{2var <- 5} oder \texttt{meine-variable <- 10}). Erläutern Sie die Fehlermeldung.
+\end{enumerate}
