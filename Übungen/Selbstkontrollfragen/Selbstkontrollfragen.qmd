@@ -9,9 +9,7 @@ format:
       }
 ---
 
-TODO: siezen
 
-\setstretch{1.4}
 
 
 # Grundbegriffe der Informatik
@@ -52,6 +50,7 @@ TODO: siezen
 \end{enumerate}
 
 ## Arithmetik, Logik und Präzedenz
+
 \begin{enumerate}
   \item Erläutern Sie den Begriff der Operatorpräzedenz. Wie kann die Operatorpräzedenz aus der R-Console heraus nachgeschlagen werden?
 \end{enumerate}
@@ -105,7 +104,6 @@ TODO: siezen
 # Datenmanagement
 
 \begin{enumerate}
-\justifying
 \item Erläutern Sie den Begriff \textquote{Forschungsdaten}.
 \item Erläutern Sie den Begriff \textquote{Metadaten}.
 \item Erläutern Sie das FAIR-Datenideal.
@@ -121,7 +119,6 @@ TODO: siezen
 # Häufigkeitsverteilungen
 
 \begin{enumerate}
-\justifying
 \item Definieren Sie die Begriffe der absoluten und relativen Häufigkeitsverteilungen.
 \item Definieren Sie den Begriff des Histogramms.
 \item Erläutern Sie die Bedeutung der Klassenanzahl für das Erscheinungsbild eines Histogramms.
@@ -130,7 +127,6 @@ TODO: siezen
 # Verteilungsfunktionen und Quantile
 
 \begin{enumerate}
-\justifying
 \item Definieren Sie die Begriffe der kumulativen absoluten und relativen Häufigkeitsverteilungen.
 \item Definieren Sie den Begriff der empirischen Verteilungsfunktion.
 \item Erläutern Sie den Begriff des sortierten Datensatzes. Geben Sie dazu ein einfaches Beispiel mit drei Datenpunkten an.
@@ -142,7 +138,6 @@ TODO: siezen
 # Maße der zentralen Tendenz und Datenvariabilität
 
 \begin{enumerate}
-\justifying
 \item Geben Sie die Definition des Mittelwertes eines Datensatzes wieder.
 \item Geben Sie das Theorem zu den Eigenschaften des Mittelwerts wieder.
 \item Geben Sie die Definition des Medians eines Datensatzes wieder.
