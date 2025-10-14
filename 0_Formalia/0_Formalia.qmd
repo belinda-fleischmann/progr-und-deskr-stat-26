@@ -165,7 +165,7 @@ Donnerstags, 9-11 Uhr (G40B-226, Persönlicher Laptop notwendig)
 \begin{tabular}{lllll}
   & Gruppe 1/2  & Gruppe 3    & Format  & Thema                                                \\ \hline
 1  & Mi, 15.10. & Do, 16.10.  & Seminar & (1) Grundlagen der Informatik                        \\
-2  & Mi, 22.10. & Do, 23.10.  & Seminar & (2) R und Visual Studio Code                         \\
+2  & Mi, 22.10. & Do, 23.10.  & Seminar & (2) Arithmetik und Variablen                         \\
 3  & Mi, 29.10. & Do, 30.10.  & Übung   & (2) Arithmetik und Variablen                         \\
 4  & Mi, 05.11. & Do, 06.11.  & Seminar & (3) Vektoren und Matrizen                            \\
 5  & Mi, 12.11. & Do, 13.11.  & Übung   & (3) Vektoren und Matrizen                            \\ \hline
