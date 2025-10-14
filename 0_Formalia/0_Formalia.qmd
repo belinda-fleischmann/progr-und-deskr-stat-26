@@ -126,7 +126,8 @@ Aufnahme läuft.
 
 \begin{itemize}  \justifying
 \item Individuelle Bearbeitung von Programmieraufgaben mit Abgabe der Lösungen als kommentierte R-Skripte.
-\item Leistungsnachweis gilt als erbracht, wenn mind. 50 \% der abgegebenen Leistungen als bestanden bewertet wurden.
+\item Die Invidualleistung besteht aus zwei Teilen.
+\item Ein Teil der Invididualleistung gilt als erbracht, wenn mind. 50 \% der Aufgaben richtig gelöst wurden.
 \end{itemize}
 
 \vfill
