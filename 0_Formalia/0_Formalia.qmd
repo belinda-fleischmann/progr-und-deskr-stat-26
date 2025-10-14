@@ -90,7 +90,7 @@ Aufnahme läuft.
 
 \begin{itemize} \justifying
 \item \textbf{Seminare}: Theoretische und praktische Einführung in die wesentlichen Konzepte der Programmierung und deskriptiven Statistik.
-\item \textbf{Übung}: Anwendung der erlernten Konzepte in von Studierenden begleiteten Präsenzübungen (Gruppenarbeit) mit Hilfestellung der Lehrpersonen.
+\item \textbf{Übung}: Anwendung der erlernten Konzepte in von Studierenden geleiteten Präsenzübungen (Gruppenarbeit) mit Hilfestellung der Lehrpersonen.
 \item \textbf{Individualleistung}: Schriftliche Abgabe der Programmierübungen in einem R Skript.
 \end{itemize}
 
@@ -109,7 +109,7 @@ Aufnahme läuft.
 \begin{itemize} \justifying
 \item Konzeption und Durchführung studierendengeleiteter Praxiseinheiten zu ausgewählten Themenschwerpunkten in Kleingruppen (3-4 Studierende).
 \item Gruppenbildung und Themenverteilung erfolgt über Moodle.
-\item Aufbau einer Studierendengleiteten Präsenzübungen.
+\item Aufbau einer studierendengleiteten Präsenzübungen.
 \begin{itemize} \small
 \item Wiederholung der relevanter Konzepte der Programmierung bzw. Deskripten Statistik und Vorstellung der Übungsaufgaben (15 min).
 \item Freie Bearbeitungszeit der Aufgaben durch alle Seminarteilnehmer:innen (65 min).
@@ -131,7 +131,7 @@ Aufnahme läuft.
 
 \vfill
 
-\textcolor{darkblue}{Das Tutorium dient der Unterstüzung von Vorbereitung von Präsenzübung und Leistungsnachweis!}
+\textcolor{darkblue}{Das Tutorium dient der Unterstützung bei der Vorbereitung der Präsenzübung und der Bearbeitung des Leistungsnachweises!}
 
 # Organisatorisches
 \setstretch{1.5}
@@ -145,13 +145,13 @@ Mittwochs, 15-17 Uhr (G26.1-007, Persönlicher Laptop optional)
 \item \textbf{Gruppe 3:}  
 Donnerstags, 9-11 Uhr (G40B-226, Persönlicher Laptop notwendig)
 \item Tutorien (zweiwöchentlich): Organisation über die \textcolor{linkblue}{\href{https://elearning.ovgu.de/course/view.php?id=19888}{Moodleseite des Tutoriums}}
-\item Kursmaterialien (Folien, Videos, Übungsblätter) auf der \textcolor{linkblue}{\href{https://www.ipsy.ovgu.de/Institut/Abteilungen+des+Institutes/Methodenlehre+I+_+Experimentelle+und+Neurowissenschaftliche+Psychologie/Lehre/Wintersemester+2026/Programmierung+und+Deskriptive+Statistik.html}{Kurswebseite}}
+\item Kursmaterialien (Folien, Videos, Übungsblätter) auf der \textcolor{linkblue}{\href{https://www.ipsy.ovgu.de/Institut/Abteilungen+des+Institutes/Methodenlehre+I/Lehre/Wintersemester+2026/Programmierung+und+Deskriptive+Statistik.html}{Kurswebseite}}
 \item Code auf \textcolor{linkblue}{\href{https://github.com/belinda-fleischmann/progr-und-deskr-stat-26}{Github}}
 \item Ankündigungen, Gruppeneinteilung und Abgabe der Individualleistung über die \textcolor{linkblue}{\href{https://elearning.ovgu.de/course/view.php?id=19714}{Moodleseite}}
-\item Vorherige Iteration des Kurses: \textcolor{linkblue}{\href{https://www.ipsy.ovgu.de/Institut/Abteilungen+des+Institutes/Methodenlehre+I+_+Experimentelle+und+Neurowissenschaftliche+Psychologie/Lehre/Wintersemester+2025/Programmierung+und+Deskriptive+Statistik.html}{Programmierung und Deskriptive Statistik (WiSe 2024/25)}}
+\item Vorherige Iteration des Kurses: \textcolor{linkblue}{\href{https://www.ipsy.ovgu.de/Institut/Abteilungen+des+Institutes/Methodenlehre+I/Lehre/Wintersemester+2025/Programmierung+und+Deskriptive+Statistik.html}{Programmierung und Deskriptive Statistik (WiSe 2024/25)}}
 \item Forum für Studierende im \textcolor{linkblue}{\href{https://mm.cs.ovgu.de/bsc-psychologie-2023/channels/20252026}{Mattermost-Channel}}
 (Einmalige \textcolor{linkblue}{\href{https://mm.cs.ovgu.de/signup_user_complete/?id=jycatiwir3bw3mtximamm5i1qy&md=link&sbr=su}{Registrierung}})
-\item Modulklausur am Ende des Sommersemesters 2026 gemäß Prüfungsplan des \textcolor{linkblue}{\href{https://bit.ly/4jodUIu}{FNW Prüfungsamtes}}
+\item Modulklausur am Ende des Sommersemesters 2026 gemäß Prüfungsplan des \textcolor{linkblue}{\href{https://www.fnw.ovgu.de/Studium/Prüfungsamt.html}{FNW Prüfungsamtes}}
 \end{itemize}
 
 # Termine Gruppe 1 und 2
