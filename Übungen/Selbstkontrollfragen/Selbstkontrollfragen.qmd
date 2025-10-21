@@ -1,0 +1,113 @@
+---
+title: "Selbstkontrollfragen"
+format:
+  pdf:
+    latex-engine: xelatex
+    header-includes: |
+      \rhead{Selbstkontrollfragen}
+      \fancypagestyle{plain}{% redefine plain to be same as fancy
+        \rhead{Selbstkontrollfragen}
+      }
+---
+
+## Grundbegriffe der Informatik
+\begin{enumerate}
+  \item Geben Sie die typische Struktur einer computergestützten Datenanalyse wieder.
+  \item Erläutern Sie den Begriff Datenanalyseskript.
+  \item Definieren Sie den Begriff Informatik.
+  \item Erläutern Sie die Akronyme CPU, RAM, SSD und GPU.
+  \item Nennen Sie die wesentlichen Aspekte der Von-Neumann-Rechnerarchitektur.
+  \item Definieren Sie den Begriff Algorithmus.
+  \item Erläutern Sie den Zusammenhang von Algorithmen und Programmen.
+  \item Beschreiben Sie, was Syntax und Semantik einer Programmiersprache beschreiben.
+  \item Differenzieren Sie die Begriffe Maschinensprache und höhere Programmiersprache.
+  \item Skizzieren Sie die Prinzipien der prozeduralen und objektorientierten imperativen Programmierung.
+  \item Skizzieren Sie die Entwicklung der Programmiersprachen der ersten bis vierten Generation.
+  \item Differenzieren Sie die Begriffe der kompilierten und der interpretierten Programmiersprachen.
+\end{enumerate}
+
+## Arithmetik und Variablen
+\begin{enumerate}
+  \item Nennen Sie zwei Möglichkeiten, alle Befehle des Skripts auszuführen und differenzieren Sie diese.
+  \item Nennen Sie zwei Möglichkeiten, einen oder mehrere R-Befehle in der Console auszuführen.
+  \item Erläutern Sie den Begriff der Operatorpräzedenz und wie diese aus der R-Console heraus nachgeschlagen werden kann.
+  \item Diskutieren Sie die klassischen Datenstrukturen einer 3GL-Programmiersprache.
+  \item Diskutieren Sie die Organisation von Datenstrukturen in R.
+  \item Erläutern Sie den Unterschied zwischen atomaren und rekursiven Datenstrukturen in R.
+  \item Nennen und erläutern Sie vier zentrale Datentypen in R.
+  \item Nennen und erläutern Sie drei zentrale atomare Datenstrukturen in R.
+  \item Nennen und erläutern Sie zwei zentrale rekursive Datenstrukturen in R.
+  \item Definieren Sie den Begriff der Variable im Kontext der Programmierung.
+  \item Erläutern Sie die Begriffe Initialisierungsanweisung und Zuweisungsanweisung für Variablen.
+  \item Geben Sie jeweils ein Beispiel für einen zulässigen und einen unzulässigen Variablennamen in R.
+  \item Erläutern Sie den Begriff Workspace.
+  \item Erläutern Sie die Prozesse, die R im Rahmen einer Zuweisungsanweisung der Form \texttt{x <- 1} durchführt.
+  \item Erläutern Sie die Begriffe \textit{Copy-on-modify} und \textit{Modify-in-place}.
+\end{enumerate}
+
+## Vektoren und Matrizen
+\begin{enumerate}
+  \item Beschreiben Sie in einer Übersicht die R-Datenstruktur Atomarer Vektor.
+  \item Erläutern Sie die Funktion des Colon-Operators in R.
+  \item Nennen Sie vier Prinzipien der Indizierung in R.
+  \item Erläutern Sie den Begriff der Datentypangleichung (Coercion).
+  \item Erläutern Sie den Begriff des (Vektor-)Recyclings.
+  \item Erläutern Sie die Bedeutung des R-Datentyps \texttt{NA}.
+  \item Erläutern Sie, wofür Attribute in R nützlich sind.
+  \item Erläutern Sie, was im Zusammenhang mit der Indizierung in R mit zu hoher Flexibilität gemeint ist.
+  \item Nennen Sie drei Operationen der linearen Algebra, die für Matrizen elementweise durchgeführt werden, mit entsprechenden R-Befehlen.
+  \item Nennen Sie vier Operationen der linearen Algebra, die für Matrizen \textit{nicht} elementweise durchgeführt werden, mit entsprechenden R-Befehlen.
+  \item Nennen Sie den Modus von Matrizen in R.
+\end{enumerate}
+
+## Listen und Dataframes
+\begin{enumerate}
+\item Beschreiben Sie in einer Übersicht die R-Datenstruktur List.
+\item Erklären Sie den Unterschied zwischen \texttt{L[1]} und \texttt{L[[1]]} bei der Indizierung einer Liste \texttt{L}.
+\item Erläutern Sie den Begriff Shallow Copy einer Liste.
+\item Beschreiben Sie in einer Übersicht die R-Datenstruktur Dataframe.
+\item Erklären Sie den Unterschied zwischen \texttt{D[1]} und \texttt{D[[1]]} bei der Indizierung eines Dataframes \texttt{D}.
+\item Erläutern Sie das Copy-on-modify-Prinzip für Dataframes.
+\end{enumerate}
+
+## Datenmanagement
+\begin{enumerate}
+\item Erläutern Sie den Begriff Forschungsdaten.
+\item Erläutern Sie den Begriff Metadaten.
+\item Erläutern Sie das FAIR-Datenideal.
+\item Diskutieren Sie Unterschiede und Gemeinsamkeiten von binären und textuellen Dateien.
+\item Nennen und erläutern Sie zwei textuelle Dateiformate.
+\item Erläutern Sie den Unterschied zwischen dem Wide- und Long-Format von Tabellen.
+\item Erläutern Sie den Unterschied zwischen absoluten und relativen Dateipfaden.
+\item Erläutern Sie den Begriff des Working Directory in R.
+\item Nennen Sie eine R-Funktion zum Einlesen von .csv-Dateien.
+\item Nennen Sie eine R-Funktion zum Schreiben von .csv-Dateien.
+\end{enumerate}
+
+## Häufigkeitsverteilungen
+\begin{enumerate}
+\item Definieren Sie die Begriffe der absoluten und relativen Häufigkeitsverteilungen.
+\item Definieren Sie den Begriff des Histogramms.
+\item Erläutern Sie die Bedeutung der Klassenanzahl für das Erscheinungsbild eines Histogramms.
+\item Definieren Sie die Begriffe der kumulativen absoluten und relativen Häufigkeitsverteilungen.
+\item Definieren Sie den Begriff der empirischen Verteilungsfunktion.
+\item Erläutern Sie den Begriff des sortierten Datensatzes. Geben Sie dazu ein einfaches Beispiel mit drei Datenpunkten an.
+\item Definieren Sie den Begriff des $p$-Quantils.
+\item Definieren Sie die Begriffe unteres Quartil, Median und oberes Quartil unter Verwendung des $p$-Quantils.
+\end{enumerate}
+
+
+## Ma\ss e der zentralen Tendenz und Datenvariabilität
+\begin{enumerate}
+\item Geben Sie die Definition des Mittelwertes eines Datensatzes wieder.
+\item Geben Sie das Theorem zu den Eigenschaften des Mittelwerts wieder.
+\item Geben Sie die Definition des Medians eines Datensatzes wieder.
+\item Erläutern Sie, wie sich Mittelwert und Median in Bezug auf Datenausrei\ss er verhalten.
+\item Geben Sie die Definition des Modalwertes eines Datensatzes wieder.
+\item Geben Sie die Definition der Spannbreite eines Datensatzes wieder.
+\item Geben Sie die Definition der Stichprobenvarianz und der empirischen Stichprobenvarianz wieder.
+\item Geben Sie das Theorem zur Stichprobenvarianz bei linear-affinen Transformationen wieder.
+\item Geben Sie den Verschiebungssatz zur empirischen Stichprobenvarianz wieder.
+\item Geben Sie die Definition der Stichprobenstandardabweichung und der empirischen Stichprobenstandardabweichung wieder.
+\item Geben Sie das Theorem zur Stichprobenstandardabweichung bei linear-affinen Transformationen wieder.
+\end{enumerate}
