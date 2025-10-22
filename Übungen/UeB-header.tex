@@ -1,0 +1,93 @@
+% Encoding, font and language settings
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}
+\usepackage{lmodern}
+
+% Typesetting
+\linespread{1.1}
+\usepackage{setspace}
+\usepackage{color, soul}                        % development tools
+
+% Lists/bulletpoints
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate]{left=0pt, labelsep=0.5em, align=left}
+\setlist[itemize]{left=0pt, labelsep=0.5em, align=left}
+
+% Maths and Symbols
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\tr}{tr}                   % trace operator declaration
+\usepackage{tikz}                               % Checkmarks
+\usepackage{csquotes}                           % proper quotation marks
+
+% Graphics packages
+\usepackage{graphicx}                           % Required to insert images
+\usepackage{adjustbox}                          % BibTex [round] Layout
+
+% Figures and tables
+\usepackage[font=small,labelfont=bf]{caption}
+
+% Page layout and headers/footers ---------------------------------------------
+\usepackage[a4paper,
+            top=2cm, bottom=2cm,
+            left=2cm, right=2cm,
+            headheight=14pt, headsep=25pt, footskip=1cm]{geometry}
+\usepackage{fancyhdr} 							% Required for custom headers
+\usepackage{lastpage} 							% Required to determine the last page for the footer
+\usepackage{extramarks} 						% Required for headers and footers		
+\setlength{\leftmargini}{0pt}
+\pagestyle{fancy}
+%\fancyhf{} % clear all header and footer fields
+
+% Header
+\lhead{Programmierung und Deskriptive Statistik - WiSe 2025/2026}
+\rhead{Übungsblatt}
+
+% Footer
+\lfoot{\lastxmark} % (remove if you don’t need extramarks)  % bottom left
+\cfoot{}                                                    % bottom center
+\rfoot{Seite\ \thepage\ von\ \pageref*{LastPage}}           % bottom right
+
+% Rules
+\renewcommand{\headrulewidth}{1pt}                          % size of header rule
+\renewcommand{\footrulewidth}{1pt}                          % size of footer rule
+
+\fancypagestyle{plain}{% redefine plain to be same as fancy
+  \fancyhf{}
+  \lhead{Programmierung und Deskriptive Statistik - WiSe 2025/2026}
+  \rhead{Übungsblatt}
+  \lfoot{\lastxmark}
+  \cfoot{}
+  \rfoot{Seite\ \thepage\ von\ \pageref*{LastPage}}
+  \renewcommand{\headrulewidth}{1pt}
+  \renewcommand{\footrulewidth}{1pt}
+}
+
+\pagestyle{fancy}
+
+% Frames
+\usepackage{framed}
+
+% Bibliography
+\usepackage[natbibapa]{apacite}
+\bibliographystyle{apacite}
+
+% block color scheme
+% -----------------------------------------------------------------------------
+% colors
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{grey}{RGB}{235,235,235}
+\definecolor{middlegrey}{RGB}{210,210,210}
+\definecolor{darkgrey}{RGB}{105,105,105}
+\definecolor{lightgrey}{RGB}{245,245,245}
+\definecolor{linkblue}{HTML}{4F86AB}
+\definecolor{darkblue}{RGB}{0,0,139}
+\definecolor{darkcyan}{RGB}{5,92,92}
+\definecolor{middlecyan}{RGB}{0,153,153}
+\definecolor{darkgreen}{RGB}{0,102,51}
+\definecolor{plum}{RGB}{128,0,128}

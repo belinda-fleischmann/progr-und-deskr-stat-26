@@ -1,0 +1,74 @@
+---
+title: "Datenmanagement"
+format:
+  pdf:
+    pdf-engine: pdflatex
+    header-includes: |
+      \rhead{Übungsblatt zu (5)}
+      \fancypagestyle{plain}{% redefine plain to be same as fancy
+        \rhead{Übungsblatt zu (5)}
+      }
+---
+
+\setstretch{1.3}
+
+## Dateipfade
+
+\begin{enumerate}
+  \item Verwenden Sie den Befehl \texttt{sys.frame(1)\$ofile}, um den absoluten Pfad des aktuellen Skripts zu ermitteln, und speichern Sie diesen in einer Variablen \texttt{skript\_pfad}. Definieren Sie mithilfe dieser Variablen eine neue Variable \texttt{skript\_ordner}, die nur den Pfad zum Verzeichnis des Skripts (ohne Dateinamen) enthält. Dieser Ordner wird im Folgenden als \textit{Skriptordner} bezeichnet. Geben Sie den absoluten Pfad des Skriptordners aus.
+  \item Ermitteln Sie das aktuelle Arbeitsverzeichnis mit \texttt{getwd()} und speichern Sie den Pfad in einer Variablen \texttt{current\_wd}. Ändern Sie anschließend das Arbeitsverzeichnis mit \texttt{setwd()} auf den Skriptordner (verwenden Sie dazu die Variable \texttt{skript\_ordner}). Geben Sie das neue Arbeitsverzeichnis zur Überprüfung aus.
+  \item Ändern Sie Ihr Arbeitsverzeichnis zu einem anderen Ordner Ihrer Wahl (z.B. zum übergeordneten Verzeichnis mit \texttt{setwd("..")}). Überprüfen Sie mit \texttt{getwd()}, ob die Änderung erfolgreich war. Setzen Sie das Arbeitsverzeichnis anschließend wieder auf den ursprünglichen Skriptordner zurück und überprüfen Sie erneut, ob die Rücksetzung funktioniert hat.
+\end{enumerate}
+
+
+## Daten einlesen und speichern
+
+\begin{enumerate}
+  \item Stellen Sie sicher, dass Ihr Arbeitsverzeichnis auf den Skriptordner gesetzt ist. Lesen Sie die Datei \texttt{Beispieldatensatz\_1.csv} mit \texttt{read.csv()} in ein Dataframe ein. Speichern Sie den Dateipfad zunächst in einer Pfadvariablen (z.B. \texttt{daten\_pfad}) und verwenden Sie diese Variable beim Einlesen. Geben Sie die ersten Zeilen des Dataframes mit \texttt{head()} aus.
+  \item Fügen Sie dem eingelesenen Dataframe eine neue Spalte oder Zeile mit selbst gewählten Werten hinzu. Speichern Sie das erweiterte Dataframe als neue CSV-Datei \texttt{Beispieldatensatz\_1\_erweitert.csv} im Skriptordner. Verwenden Sie auch hier eine Pfadvariable (z.B. \texttt{daten\_erweitert\_pfad}). Überprüfen Sie, ob die Datei erfolgreich gespeichert wurde, indem Sie sie erneut einlesen und ausgeben.
+  \item Ändern Sie Ihr Arbeitsverzeichnis zum übergeordneten Verzeichnis mit \texttt{setwd("..")}. Passen Sie die Pfadvariablen aus Aufgabe 1 und 2 so an, dass sie relative Pfade verwenden, die vom neuen Arbeitsverzeichnis aus auf die Dateien im Skriptordner verweisen. Führen Sie das Einlesen und Speichern erneut aus, um zu überprüfen, ob die angepassten Pfade korrekt funktionieren.
+  \begin{itemize} \small
+    \item \textit{Hinweis:} Wenn Ihr Skriptordner z.B. \texttt{kurs/uebungen} heißt und Sie nun im übergeordneten Ordner \texttt{kurs} sind, könnte der Pfad z.B. \texttt{daten\_pfad <- ``uebungen/Beispieldatensatz\_1.csv"} lauten.
+    \item Beachten Sie: Es ändert sich nur das Arbeitsverzeichnis und die Pfaddefinition, nicht die tatsächliche Ordnerstruktur.
+  \end{itemize}
+\end{enumerate}
+
+
+\newpage
+
+## Datensimulation
+
+\begin{enumerate}
+  \item Der folgende Code generiert zwei Vektoren, die zwei Variablen eines Datensatzes mit Stichprobengröße $n = 30$ repräsentieren. Die erste Variable \texttt{var\_1} enthält Gruppenzugehörigkeiten (\textquote{Winter} und \textquote{Sommer}) mit den gruppenspezifischen Stichprobengrößen \texttt{n\_1} bzw. \texttt{n\_2}. Die zweite Variable \texttt{var\_2} enthält Zahlenwerte.
+
+\begin{verbatim}
+n    <- 30
+n_1  <- (n / 3) * 2
+n_2  <- (n / 3) * 1
+
+var_1 <- c(
+  rep("Winter", n_1),
+  rep("Sommer", n_2)
+)
+
+set.seed(0)
+var_2 <- c(
+  runif(n_1, min = 0, max = 5),
+  runif(n_2, min = 5, max = 9)
+)
+\end{verbatim}
+
+  Passen Sie den Code so an, dass beide Vektoren jeweils 150 Datenpunkte enthalten. Die erste Hälfte der Daten repräsentiert die Gruppe \textquote{Winter}, die zweite Hälfte die Gruppe \textquote{Sommer}.
+
+  \begin{itemize}
+    \item Setzen Sie zu Beginn des Codes den Zufallsgenerator-Seed mit \texttt{set.seed(0)}, um reproduzierbare Ergebnisse zu erhalten.
+    \item Verwenden Sie \texttt{runif()} zur Generierung von Zufallszahlen für \texttt{var\_2} (\texttt{?runif} für Details).
+    \item Passen Sie die Argumente so an, dass für \textquote{Winter} Werte zwischen 0 und 10 und für \textquote{Sommer} Werte zwischen 0 und 40 generiert werden.
+    \item Runden Sie die Werte auf eine Nachkommastelle mit \texttt{round()}.
+    \item Geben Sie beide Vektoren mit \texttt{print()} aus.
+  \end{itemize}
+
+  \textit{Optional:} Überlegen Sie sich ein Beispiel, welche Variable \texttt{var\_2} darstellen könnte.
+
+  \item Erstellen Sie ein Dataframe aus den Vektoren \texttt{var\_1} und \texttt{var\_2}. Vergeben Sie sinnvolle Spaltennamen (z.B. \texttt{Jahreszeit} und \texttt{Messwert}). Geben Sie die ersten Zeilen des Dataframes mit \texttt{head()} aus und speichern Sie es als CSV-Datei im Skriptordner unter dem Namen \texttt{simulierte\_saisondaten.csv}.
+\end{enumerate}

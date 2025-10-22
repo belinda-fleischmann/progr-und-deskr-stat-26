@@ -1,0 +1,52 @@
+---
+title: "Maße zentrale Tendenz und Datenvariabilität"
+format:
+  pdf:
+    pdf-engine: pdflatex
+    header-includes: |
+      \rhead{Übungsblatt zu (8)}
+      \fancypagestyle{plain}{% redefine plain to be same as fancy
+        \rhead{Übungsblatt zu (8)}
+      }
+---
+
+\setstretch{1.4}
+
+## Deskriptive Statistiken
+
+\begin{enumerate}
+\item Dokumentieren Sie alle in dieser Einheit verwendeten R-Befehle in einem R-Skript.
+
+\item Laden Sie den Datensatz aus der Datei \texttt{psychotherapie\_datensatz.csv}. Fügen Sie dem Datensatz eine neue Spalte \texttt{Delta.BDI} hinzu, die die Differenz zwischen \texttt{Pre.BDI} und \texttt{Post.BDI} enthält, sodass positive Werte eine Verbesserung (Reduktion der Depressionswerte) widerspiegeln.
+
+\item Berechnen Sie den Mittelwert, den Median und den Modalwert der Post-BDI-Daten und speichern Sie diese in separaten Variablen. Visualisieren Sie die Häufigkeitsverteilung der Post-BDI-Daten und diskutieren Sie die berechneten Werte vor dem Hintergrund dieser Häufigkeitsverteilung in einem Kommentar in Ihrem R-Skript.
+
+\item Berechnen Sie die Spannbreite (Range), die Stichprobenvarianz und die Stichprobenstandardabweichung der Post-BDI-Daten unter Verwendung der Definitionen aus der Vorlesung.
+
+\item Berechnen Sie deskriptive Statistiken für die Variable \texttt{Delta.BDI}. Erstellen Sie dafür einen Dataframe mit den Kennwerten Stichprobengröße (\texttt{n}), Maximum (\texttt{Max}), Minimum (\texttt{Min}), Median, Mittelwert (\texttt{Mean}), Varianz (\texttt{Var}) und Standardabweichung (\texttt{Std}) unter Verwendung der in der Vorlesung eingeführten Formeln.
+
+\item Berechnen Sie die deskriptiven Kennwerte für \texttt{Delta.BDI} getrennt nach den Therapiebedingungen \textquote{Klassisch} und \textquote{Online}. Legen Sie dazu zunächst einen Vektor mit den beiden Bedingungsnamen an und initialisieren Sie einen leeren Dataframe mit \texttt{deskr\_stat <- data.frame()}. Iterieren Sie anschließend mit einer \texttt{for}-Schleife über die Bedingungen, filtern Sie in jeder Iteration die entsprechenden Daten, berechnen Sie die Kennwerte und tragen Sie diese in den Dataframe ein.
+
+\textit{Hinweis:} Der resultierende Dataframe sollte folgende Struktur enthalten:
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{lccccccc}
+    \hline
+             & n  & Max & Min & Median & Mean  & Var      & Std      \\ 
+    \hline
+    Klassisch & 50 & 12  & -1  & 6      & 6.16  & 7.075918 & 2.660060 \\ 
+    Online    & 50 & 9   & 1   & 5      & 4.92  & 3.911837 & 1.977836 \\ 
+    \hline
+    \end{tabular}
+\end{table}
+\end{enumerate}
+
+
+## Visualisierung deskriptiver Statistiken
+
+\begin{enumerate}
+\item Erstellen Sie ein Balkendiagramm mit Fehlerbalken, das die Mittelwerte und Standardabweichungen der Variable \texttt{Delta.BDI} für die beiden Therapiebedingungen \textquote{Klassisch} und \textquote{Online} darstellt. Extrahieren Sie die Mittelwerte und Standardabweichungen aus dem zuvor erstellten Dataframe. Verwenden Sie \texttt{barplot()} zur Darstellung der Mittelwerte und \texttt{arrows()} für die Fehlerbalken. Achten Sie auf passende Achsenbeschriftungen und einen aussagekräftigen Titel. Speichern Sie das Diagramm im Unterordner \texttt{Abbildungen} unter dem Dateinamen \texttt{balkendiagramm\_delta\_bdi.pdf}.
+
+\item Erstellen Sie Boxplots, die die Verteilung der \texttt{Delta.BDI}-Werte für die beiden Therapiebedingungen \textquote{Klassisch} und \textquote{Online} nebeneinander darstellen. Verwenden Sie das Argument \texttt{formula} in \texttt{boxplot()} zur Gruppierung der \texttt{Delta.BDI-Werte} nach Therapiebedingungen. Beschriften Sie die Achsen und den Titel passend und speichern Sie das Diagramm im Unterordner \texttt{Abbildungen} unter dem Dateinamen \texttt{boxplots\_delta\_bdi.pdf}.
+\end{enumerate}
