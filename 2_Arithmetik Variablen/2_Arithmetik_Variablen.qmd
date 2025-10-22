@@ -362,8 +362,8 @@ sum(1:3)                           # Summe der Zahlen von 1 bis 3
 
 \begin{itemize} \justifying
 \item Ein R Paket ist eine Sammlung von R-Funktionen, Datensätzen und vordefinierten Skripten, die in einem strukturierten Format (Paket) gebündelt sind.
-\item Analog zu Computerprogrammen (wie MS Word) müssen R Pakete zuerst auf dem Rechner \textbf{installiert} werden, bevor sie verwendet werden können.Ausnahmen sind Standardpakete (\texttt{standard library}), die automatisch mit der Installation von R mitgeliefert werden.
-\item Wie Computerprogrammen müssen R Pakete auch \underline{nur \textit{einmal}} installiert werden. Deshalb empfiehlt es sich, Paketinstallationsbefehle aus Skripten auszukommentieren.
+\item Analog zu Computerprogrammen (wie MS Word) müssen R Pakete zuerst auf dem Rechner \textbf{installiert} werden, bevor sie verwendet werden können. Ausnahmen sind Standardpakete (\texttt{standard library}), die automatisch mit der Installation von R mitgeliefert werden.
+\item Wie Computerprogramme müssen R Pakete auch \underline{nur \textit{einmal}} installiert werden. Deshalb empfiehlt es sich, Paketinstallationsbefehle aus Skripten auszukommentieren.
 \item Analog dazu, dass Computerprogramme bei jedem Neustart zuerst \textit{geöffnet} werden müssen, bevor damit gearbeitet werden kann, müssen R Pakete bei jeder neuen R Sitzung zuerst in die Workspace \textbf{geladen} werden, bevor damit gearbeitet werden kann.
 \end{itemize}
 
@@ -410,14 +410,14 @@ sum(1:3)                           # Summe der Zahlen von 1 bis 3
 
 # --- Paketemanagement ------
 # install.packages("lobstr")        # Installation des Pakets "lobstr"
-library(lobstr)                     # Laden des Pakets lobstr
+library(lobstr)                     # Laden des Pakets lobstr; für obj_addr()
 
 # --- Variablendefinition ---
-Text <- "Hallo Welt!"               # Definition der Variable 'Ausgabetext'
+Ausgabetext <- "Hallo Welt!"        # Definition der Variable 'Ausgabetext'
 
 # --- Ausgabe ---------------
-print(Text)                         # Ausgabe der Variabe 'Ausgabetext'
-obj_addr(Text)                      # Ausgabe der Speicheradresse der Variable 'Ausgabetext'
+print(Ausgabetext)                  # Ausgabe der Variabe 'Ausgabetext'
+obj_addr(Ausgabetext)               # Ausgabe der Speicheradresse der Variable 'Ausgabetext'
 ```
 
 \vfill
@@ -948,16 +948,16 @@ obj_addr(y) == obj_addr(x)  # ...referenzieren y und x nicht die selbe Adresse
 Zur Immutability gibt allerdings zwei Ausnahmen, genannt \textit{Modifications-in-place}
 
 1. Objekte mit nur einem gebundenem Namen werden in-place modifiziert
-\footnotesize
+  \footnotesize
 ```{r}
 #| label: modifications-in-place
-x <- c(1,2) # Objekt (0x74b) erzeugt, x referenziert Speicheradresse des Objektes
-x[1] <- 2   # Objekt (0x74b) veraendert
+  x <- c(1,2) # Objekt (0x74b) erzeugt, x referenziert Speicheradresse des Objektes
+  x[1] <- 2   # Objekt (0x74b) veraendert
 ```
 
    * \footnotesize Dieses Verhalten ist allerdings nur in R, nicht innerhalb VSCode reproduzierbar.
-   
-1. \small Environments werden in-place modifiziert.
+
+2. \small Environments werden in-place modifiziert.
 
 \vfill
 
@@ -1164,10 +1164,10 @@ Automatische Festlegung von Datentypen durch Zuweisung
 \footnotesize
 ```{r, eval = T}
 #| label: Automatische Typen
-b = TRUE					# logical
-x = 2.5 					# double
-y = 1L						# (long) integer
-c = 'a' 					# character
+b <- TRUE					# logical
+x <- 2.5 					# double
+y <- 1L						# (long) integer
+c <- 'a' 					# character
 ```
 \small
 Ausgabe von Datentypen durch `typeof()`
