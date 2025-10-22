@@ -1246,7 +1246,7 @@ Array
 \end{center}
 \vspace{3mm}
 
-$\Rightarrow$ (3) Vektoren und (4) Matrizen
+$\Rightarrow$ (3) Vektoren und Matrizen
 
 \vfill
 
@@ -1275,6 +1275,6 @@ Dataframe
 \end{center}
 \vspace{3mm}
 
-$\Rightarrow$ (5) Listen und Dataframes
+$\Rightarrow$ (4) Listen und Dataframes
 
 \vfill
