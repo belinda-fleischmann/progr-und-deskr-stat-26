@@ -17,7 +17,6 @@ format:
   \item Öffnen Sie die Help-Page für die Funktion \texttt{print()} und bearbeiten Sie die nachstehenden Aufgaben:
     \begin{enumerate}
       \item Nennen Sie den Unterschied zwischen den Befehlen \texttt{print(x="Hallo Welt")} und \texttt{print("Hallo Welt")}.
-      \item Beschreiben Sie, welche Funktion das Argument \texttt{digits} erfüllt, und führen Sie ein Beispiel aus dem Abschnitt \textbf{Examples} der Help-Page aus.
       \item Nennen Sie den Unterschied zwischen den Befehlen \texttt{print(pi)} und \texttt{print(pi, digits=2)}.
     \end{enumerate}
   \item Geben Sie unvollständige Befehle in die R-Console ein und beobachten Sie das Verhalten. Verwenden Sie dafür mindestens zwei der folgenden Beispiele: \texttt{print("Hello"}, \texttt{sqrt(4}, \texttt{x <-} oder \texttt{sqrt(1 +}.
