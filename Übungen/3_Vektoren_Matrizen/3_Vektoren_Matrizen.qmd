@@ -36,6 +36,7 @@ format:
 ## Matrizen
 
 \begin{enumerate}
+\setcounter{enumi}{10}
   \item Erzeugen Sie in R die Matrizen
   $$
   A = 
