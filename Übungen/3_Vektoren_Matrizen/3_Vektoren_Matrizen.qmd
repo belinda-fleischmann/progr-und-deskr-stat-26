@@ -15,19 +15,16 @@ format:
 ## Vektoren
 
 \begin{enumerate}
-  \item Öffnen Sie die R-Help-Seite der Funktion \texttt{c()} und nennen Sie das R-Paket, zu dem \texttt{c()} gehört.
+  \item Finden Sie heraus, zu welchem R-Paket die Funktion \texttt{c()} gehört, und nennen Sie zwei Methoden, mit denen man generell das Paket einer gegebenen Funktion bestimmen kann.
   \item Erstellen Sie einen Vektor mit den Zahlen 1, 2 und 3 mithilfe des Colon-Operators.
-  \item Nennen und dokumentieren Sie jeweils ein Beispiel für jedes der vier Prinzipien der Indizierung in R.
-  \item Erzeugen Sie einen Vektor der Dezimalzahlen 0.0, 0.05, 0.10, 0.15, ..., 0.90, 0.95 und 1.0.
-  \item Wählen Sie mithilfe positiver Indizes die Elemente 0.0, 0.1, ..., 0.9 und 1.0 dieses Vektors aus.
-  \item Wählen Sie mithilfe negativer Indizes die Elemente 0.0, 0.1, ..., 0.9 und 1.0 dieses Vektors aus.
-  \item Wählen Sie die letzten 10 Elemente dieses Vektors aus.
+  \item Demonstrieren Sie jeweils ein Beispiel für jedes der vier Prinzipien der Indizierung in R.
+  \item Erstellen Sie einen Vektor mit den Werten 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5 und 10.0 auf drei verschiedene Weisen. Wählen Sie anschließend die ungeraden Positionen (z.B. Position 1, 3, 5, ...) sowohl mithilfe positiver als auch negativer Indizes aus und geben Sie die ausgewählten Werte aus.
+  \item Wählen Sie die letzten 5 Elemente dieses Vektors aus.
   \item Erstellen Sie einen Vektor, der sowohl Zahlenwerte als auch fehlende Werte (\texttt{NA}) enthält, zum Beispiel \texttt{c(1, 2, NA, 19, NA, 41)}. Berechnen Sie die Summe aller Werte dieses Vektors mit der Funktion \texttt{sum()}.
   \begin{itemize}
     \item Erläutern Sie, weshalb die Funktion als Ergebnis \texttt{NA} zurückgibt. Konsultieren Sie hierzu die Help-Page (\texttt{?sum}).
     \item Beschreiben Sie, wie die Funktion \texttt{sum()} dazu veranlasst werden kann, \texttt{NA}-Werte zu ignorieren und die Summe nur über die vorhandenen Zahlenwerte zu berechnen.
   \end{itemize}
-  \item Erstellen Sie einen Vektor mit den Werten 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5 und 10.0 auf drei verschiedene Weisen. Wählen Sie anschließend die ungeraden Positionen (z.B. Position 1, 3, 5, ...) sowohl mithilfe positiver als auch negativer Indizes aus und geben Sie die ausgewählten Werte aus.
   \item Zeigen Sie, dass der mit \texttt{u <- c(4, 5, 6)} definierte Vektor nicht vom Datentyp \texttt{character} ist.
 \end{enumerate}
 
@@ -36,7 +33,7 @@ format:
 ## Matrizen
 
 \begin{enumerate}
-\setcounter{enumi}{10}
+\setcounter{enumi}{7}
   \item Erzeugen Sie in R die Matrizen
   $$
   A = 
