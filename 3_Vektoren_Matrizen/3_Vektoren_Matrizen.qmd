@@ -259,7 +259,7 @@ Direkte Konkatenation von Elementarwerten mit `c()`
 x <- c(1, 2, 3)                    # numeric vector [1,2,3]
 y <- c(0, x, 4)                    # numeric vector [0,1,2,3,4]
 s <- c("a", "b", "c")              # character vector ["a", "b", "c"]
-l <- c(TRUE, FALSE)                # logical  vector [TRUE, FALSE]
+l <- c(TRUE, FALSE)                # logical vector [TRUE, FALSE]
 ```
 
 * \footnotesize Beachte: `c()` konkateniert die Eingabeargumente und erzwingt einen einheitlichen Datentyp (vgl. coercion)
@@ -417,12 +417,12 @@ typeof(y)          # Datentyp des atomic vectors
 \tiny
 ```{r, eval = T}
 #| label: Beispiel typetest mit is.double()
-is.double(x)       # Testen, ob der x vom Typ double ist
+is.double(x)       # Testen, ob x vom Typ double ist
 ```
 \vspace{2mm}
 ```{r, eval = T}
 #| label: Beispiel typetest mit is.logical()
-is.logical(y)      # Testen, ob der y vom Typ logical ist
+is.logical(y)      # Testen, ob y vom Typ logical ist
 ```
 
 
@@ -827,7 +827,7 @@ y <- a / b             # y = [1,2,3] / [2,2,2] = [1/2,2/2,3/2] = [0.5, 1, 1.5]
 
 * \texttt{NaN} steht für “**N**ot **a** “**N**umber” repräsentiert ungültige Zahlenwerte, z.B. durch undefinierte arithmetische Operationen \footnotesize 
   ```{r, eval = T}
-  0/0                  # 0 durch 0 teilen ist nicht definiert
+  0 / 0                # 0 durch 0 teilen ist nicht definiert
   ```
   \vspace{2mm}
   ```{r, eval = T}
@@ -838,11 +838,11 @@ y <- a / b             # y = [1,2,3] / [2,2,2] = [1/2,2/2,3/2] = [0.5, 1, 1.5]
 
 * \small In Mathematik und Informatik ist Dividieren durch Null undefiniert. R verwendet jedoch das Konzept "Unendlichkeit": positive Zahlen gehen bei Division durch Null gegen positive Unendlichkeit \texttt{Inf}, negative gegen negative \texttt{-Inf}, ähnlich wie Grenzwerte in der Analysis. \footnotesize \setstretch{1.2}
   ```{r, eval = T}
-  4/0                  # Positive reelle Zahlen durch 0 teilen ist nicht definiert
+  4 / 0                # Positive reelle Zahlen durch 0 teilen ist nicht definiert
   ```
   \vspace{2mm}
   ```{r, eval = T}
-  -3/0                 # Negative reelle Zahlen durch 0 teilen ist nicht definiert
+  -3 / 0               # Negative reelle Zahlen durch 0 teilen ist nicht definiert
   ```
   \vspace{2mm}
 
@@ -1137,8 +1137,8 @@ round(                  # Äußere Funktion (Ebene 0)
 )                       # Ende der äußeren Funktion (Ebene 0)
 ```
 
-* Das Ergebnis der inneren Funktion (`sum()`) ist das erste **Argument** der äußeren Funktion `round()`. 
-* Zeile 3 (`c(7.421, 9.234)`) ist genau genommen ebenfalls eine Funktion (Vektorbildung), deren Ergebnis das **Argument** der inneren Funktion `sum()` ist.
+* Das Ergebnis der inneren Funktion `sum()` ist das erste Argument der äußeren Funktion `round()`. 
+* Zeile 3 (`c(7.421, 9.234)`) ist genau genommen ebenfalls eine Funktion (Vektorbildung), deren Ergebnis das Argument der inneren Funktion `sum()` ist.
 
 
 
