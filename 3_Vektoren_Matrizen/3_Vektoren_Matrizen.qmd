@@ -594,7 +594,7 @@ Indizierung mit einem **logischen Vektor**
 \footnotesize
 ```{r, eval = F}
 #| label: Bsp logischen Vektor
-x  # [1, 4, 9, 16, 25]
+x <- c(1, 4, 9, 16, 25)   # [1, 4, 9, 16, 25]
 y <- x[c(T, T, F, F, T)]  # Nur die TRUE Komponenten,  x[c(T, T, F, F, T)] = [1, 4, 25]
 z <- x[x > 5]             # x > 5 = [F, F, T, T, T], x[x > 5] = [9, 16, 25]
 ```
@@ -1450,7 +1450,7 @@ Generell gilt
 A <- matrix(c(2:7)^2, nrow = 2)      # 2 x 3 Matrix der Zahlen 2^2,...,7^2
 print(A)
 a_13 <- A[1, 3]                      # Element in 1. Zeile, 3. Spalte von A [36]
-a_22 <- A[2, 2]                      # Element in 2. Zeile, 2. Spalte von A [35]
+a_22 <- A[2, 2]                      # Element in 2. Zeile, 2. Spalte von A [25]
 a_2. <- A[2,]                        # Alle Elemente der 2. Zeile [9,25,49]
 a_.3 <- A[,3]                        # Alle Elemente der 3. Spalte [36,49]
 A_12 <- A[1:2, 1:2]                  # Submatrix der ersten zwei Zeilen und Spalten
