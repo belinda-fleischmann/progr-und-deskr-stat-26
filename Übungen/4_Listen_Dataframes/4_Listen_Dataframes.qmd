@@ -30,6 +30,7 @@ format:
 ## Dataframes
 
 \begin{enumerate}
+\setcounter{enumi}{4}
   \item Erzeugen Sie einen Dataframe \texttt{D} mit mindestens drei Spalten und drei Zeilen. Öffnen Sie ihn mit \texttt{View(D)} im VSCode Interactive Viewer.
     \begin{enumerate}
       \item Geben Sie an, was \texttt{rownames(D)} und \texttt{colnames(D)} zurückgeben.
