@@ -22,23 +22,30 @@ format:
       \item Erläutern Sie die Bedeutung von \texttt{L\$Student} und nennen Sie die Voraussetzung, unter der diese Syntax funktioniert.
       \item Erzeugen Sie eine neue Liste, indem Sie das erste und dritte Element von \texttt{L} kombinieren.
     \end{enumerate}
-  \item Erstellen Sie eine Liste mit drei Elementen: einem Vektor mit den Zahlen 3, 4 und 5, der Funktion \texttt{sum}, und einem einelementigen Vektor \texttt{"Blauwal"}. Wenden Sie die Funktion im zweiten Listenelement auf die Zahlen des ersten Listenelements an und geben Sie das Ergebnis aus.
-  \item Kopieren Sie den zweiten Wert des Vektors aus der Liste (d.h. die Zahl 4) durch Indizierung und geben Sie diesen Wert aus.
-  \item Erstellen Sie eine verschachtelte Liste, deren äußere Liste zwei Elemente enthält. Das erste Element soll selbst eine Liste mit zwei Zahlenwerten sein. Greifen Sie auf den zweiten Wert der inneren Liste zu und geben Sie ihn aus.
+  \item Erstellen Sie eine Liste mit drei Elementen: einem Vektor mit den Zahlen 3, 4 und 5, der Funktion \texttt{sum}, und einem einelementigen Vektor \texttt{"Blauwal"}.
+    \begin{enumerate}
+      \item Wenden Sie die Funktion im zweiten Listenelement auf die Zahlen des ersten Listenelements an und geben Sie das Ergebnis aus.
+      \item Kopieren Sie den zweiten Wert des Vektors aus der Liste (d.h. die Zahl 4) durch Indizierung und geben Sie diesen Wert aus.
+    \end{enumerate}
 \end{enumerate}
 
 ## Dataframes
 
 \begin{enumerate}
-\setcounter{enumi}{4}
-  \item Erzeugen Sie einen Dataframe \texttt{D} mit mindestens drei Spalten und drei Zeilen. Öffnen Sie ihn mit \texttt{View(D)} im VSCode Interactive Viewer.
+\setcounter{enumi}{2}
+  \item Erstellen Sie einen Dataframe mit drei Zeilen und drei Spalten, wobei jede Spalte einen unterschiedlichen Datentyp aufweist (z.B. \texttt{numeric}, \texttt{character}, \texttt{logical}). 
     \begin{enumerate}
+      \item Vergeben Sie aussagekräftige Spaltenbezeichnungen und geben Sie den Dataframe aus. 
+      \item Öffnen Sie ihn mit \texttt{View(D)} im VSCode Interactive Viewer.
       \item Geben Sie an, was \texttt{rownames(D)} und \texttt{colnames(D)} zurückgeben.
       \item Demonstrieren Sie den Unterschied zwischen \texttt{D[1]}, \texttt{D[[1]]} und \texttt{D[,1]}.
       \item Demonstrieren Sie den Unterschied zwischen \texttt{D[1]} und \texttt{D[1,1]}.
       \item Wählen Sie die erste und dritte Spalte des Dataframes aus und speichern Sie das Ergebnis in einem neuen Dataframe.
     \end{enumerate}
-  \item Erstellen Sie einen Dataframe mit drei Zeilen und drei Spalten, wobei jede Spalte einen unterschiedlichen Datentyp aufweist (z.B. \texttt{numeric}, \texttt{character}, \texttt{logical}). Vergeben Sie aussagekräftige Spaltenbezeichnungen und geben Sie den Dataframe aus.
-  \item Manipulieren Sie eine Spalte Ihres Dataframes mithilfe des \$-Operators (z.B. durch Multiplikation aller Werte mit 2 oder durch Änderung einzelner Werte) und geben Sie den veränderten Dataframe aus.
-  \item Fügen Sie Ihrem Dataframe eine neue Spalte hinzu, die sich aus Berechnungen mit bestehenden Spalten ergibt, und geben Sie den erweiterten Dataframe aus.
+  \item Erstellen Sie einen Dataframe mit drei Zeilen und drei Spalten vom Datentyp \texttt{numeric}.
+    \begin{enumerate}
+      \item Vergeben Sie aussagekräftige Spaltenbezeichnungen und geben Sie den Dataframe aus.
+      \item Manipulieren Sie eine Spalte Ihres Dataframes mithilfe des \texttt{\$}-Operators und einer arithmetischen Operation und geben Sie den veränderten Dataframe aus.
+      \item Fügen Sie Ihrem Dataframe eine neue Spalte hinzu, die sich aus Berechnungen mit mindestens bestehenden Spalten ergibt, und geben Sie den erweiterten Dataframe aus.
+    \end{enumerate}
 \end{enumerate}
