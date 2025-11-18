@@ -1,3 +1,7 @@
 *quarto/
 *vscode
 /.quarto/
+
+**/*.quarto_ipynb
+list_Viewer_Demo.r
+table_viewer_Demo.r
