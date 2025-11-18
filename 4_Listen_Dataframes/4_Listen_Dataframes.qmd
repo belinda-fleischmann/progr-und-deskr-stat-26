@@ -502,9 +502,9 @@ Zur nicht-numerischen Adressierung können Listenelementen Namen gegeben werden.
 \tiny
 \setstretch{0.9}
 ```{r, eval = T}
-L <- list(greta = 1:3,               # eine Liste mit benannten Elementen
-          luisa = "a",
-          carla = exp)
+L <- list(marie = 1:3,               # eine Liste mit benannten Elementen
+          lise  = "a",
+          emmy  = exp)
 print(L)
 ```
 
@@ -546,11 +546,11 @@ Mit Namen können **Listenelemente** ([ ]) und **Listenelementinhalte** ([[ ]]) 
 \tiny
 \setstretch{0.9}
 ```{r, eval = T}
-L <- list(greta = 1:3,      # eine Liste mit benannten Elementen
-          luisa = "a",
-          carla = exp)
-L["carla"]                  # Listenelementindizierung
-L[["carla"]]                # Listenelementinhaltsinindizierung
+L <- list(marie = 1:3,      # eine Liste mit benannten Elementen
+          lise  = "a",
+          emmy  = exp)
+L["emmy"]                   # Listenelementindizierung
+L[["emmy"]]                 # Listenelementinhaltsinindizierung
 ```
 
 \setstretch{1.1}
@@ -562,12 +562,12 @@ Mit dem `$`-Operator können **Listenelementinhalte** indiziert werden.
 \tiny
 \setstretch{0.9}
 ```{r, eval = T}
-L <- list(greta = 1:3,      # eine Liste mit benannten Elementen
-          luisa = "a",
-          carla = exp)
-L$greta                     # Listenelementinhalt
-L$luisa                     # Listenelementinhalt
-L$carla                     # Listenelementinhalt
+L <- list(marie = 1:3,      # eine Liste mit benannten Elementen
+          lise  = "a",
+          emmy  = exp)
+L$marie                     # Listenelementinhalt
+L$lise                      # Listenelementinhalt
+L$emmy                      # Listenelementinhalt
 ```
 
 
