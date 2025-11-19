@@ -234,7 +234,7 @@ print(L)
 \setstretch{1.2}
 \footnotesize
 
-Mit dem Befehl `View()` oder im R \fbox{WORKSPACE} $\rightarrow$ \fbox{Global Environment} über das View Symbol ![](../VL_Abbildungen/pds_4_view_symbol.png){width="4%" fig-align="center"} neben entsprechendem Objekt
+Mit dem Befehl `View()` oder im R \fbox{WORKSPACE} $\rightarrow$ \fbox{Global Environment} über das View Symbol ![](../VL_Abbildungen/pds_4_view_symbol.png){width="4%"} neben entsprechendem Objekt
 
 \tiny
 \begin{flushright}
@@ -828,7 +828,7 @@ $\quad$ Copy-on-modify
 \tiny
 Anmerkung:
 \setstretch{0.9}
-Der in diesem Beispiel verwendete Datensatz `cushny` ist im R Paket `psychTools` enthalten. Nach Installation und Laden des Pakets kann der Datensatz mit dem Befehl \texttt{'data(cushny)'} in den Workspace geladen werden. Mehr Details zu `cushny` und weiteren Datensätzen [\textcolor{linkblue}{hier}](https://cran.r-project.org/web/packages/psychTools/psychTools.pdf).
+Der in diesem Beispiel verwendete Datensatz `cushny` ist im R Paket `psychTools` enthalten. Nach Installation und Laden des Pakets kann der Datensatz mit dem Befehl \texttt{data(cushny)} in den Workspace geladen werden. Mehr Details zu `cushny` und weiteren Datensätzen [\textcolor{linkblue}{hier}](https://cran.r-project.org/web/packages/psychTools/psychTools.pdf).
 
 
 # Übersicht
@@ -888,7 +888,7 @@ D <- data.frame(x = letters[1:4],    # 1. Spalte mit Länge 4
 \setstretch{1.2}
 \footnotesize
 
-Mit dem Befehl \texttt{View()} oder im R \fbox{WORKSPACE} $\rightarrow$ \fbox{Global Environment} über das View Symbol ![](../VL_Abbildungen/pds_4_view_symbol.png){width="4%" fig-align="center"} neben entsprechendem Objekt
+Mit dem Befehl `View()` oder im R \fbox{WORKSPACE} $\rightarrow$ \fbox{Global Environment} über das View Symbol ![](../VL_Abbildungen/pds_4_view_symbol.png){width="4%"} neben entsprechendem Objekt
 
 \tiny
 \begin{flushright}
