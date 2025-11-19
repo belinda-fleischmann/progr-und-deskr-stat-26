@@ -1187,7 +1187,7 @@ D1 + D2                             # Fehler bei nicht-numerischen Spalten
 D3 <- data.frame(u = rep(1, 3),     # 1. Spalte mit numerischem vector
                  v = rep(1, 3))     # 2. Spalte mit numerischem vector
 
-D1 + D3                             # Dataframe-Addition bei numerischen Spalten
+D1 + D3                             # Fehler bei numerischen aber nicht gleich langen Spalten
 ```
 
 \vspace{1.5mm}
