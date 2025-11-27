@@ -24,6 +24,7 @@ format:
 ## Daten einlesen und speichern
 
 \begin{enumerate}
+\setcounter{enumi}{3}
   \item Stellen Sie sicher, dass Ihr Arbeitsverzeichnis auf den Skriptordner gesetzt ist. Lesen Sie die Datei \texttt{Beispieldatensatz\_1.csv} mit \texttt{read.csv()} in ein Dataframe ein. Speichern Sie den Dateipfad zunächst in einer Pfadvariablen (z.B. \texttt{daten\_pfad}) und verwenden Sie diese Variable beim Einlesen. Geben Sie die ersten Zeilen des Dataframes mit \texttt{head()} aus.
   \item Fügen Sie dem eingelesenen Dataframe eine neue Spalte oder Zeile mit selbst gewählten Werten hinzu. Speichern Sie das erweiterte Dataframe als neue CSV-Datei \texttt{Beispieldatensatz\_1\_erweitert.csv} im Skriptordner. Verwenden Sie auch hier eine Pfadvariable (z.B. \texttt{daten\_erweitert\_pfad}). Überprüfen Sie, ob die Datei erfolgreich gespeichert wurde, indem Sie sie erneut einlesen und ausgeben.
   \item Ändern Sie Ihr Arbeitsverzeichnis zum übergeordneten Verzeichnis mit \texttt{setwd("..")}. Passen Sie die Pfadvariablen aus Aufgabe 1 und 2 so an, dass sie relative Pfade verwenden, die vom neuen Arbeitsverzeichnis aus auf die Dateien im Skriptordner verweisen. Führen Sie das Einlesen und Speichern erneut aus, um zu überprüfen, ob die angepassten Pfade korrekt funktionieren.
@@ -39,6 +40,7 @@ format:
 ## Datensimulation
 
 \begin{enumerate}
+\setcounter{enumi}{6}
   \item Der folgende Code generiert zwei Vektoren, die zwei Variablen eines Datensatzes mit Stichprobengröße $n = 30$ repräsentieren. Die erste Variable \texttt{var\_1} enthält Gruppenzugehörigkeiten (\textquote{Winter} und \textquote{Sommer}) mit den gruppenspezifischen Stichprobengrößen \texttt{n\_1} bzw. \texttt{n\_2}. Die zweite Variable \texttt{var\_2} enthält Zahlenwerte.
 
 \begin{verbatim}
