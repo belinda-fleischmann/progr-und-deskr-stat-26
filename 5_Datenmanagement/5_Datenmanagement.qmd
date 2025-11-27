@@ -257,7 +257,7 @@ R1.3. (Meta)Daten genügen den Standards der jeweiligen Fachcommunity.
 * Universitäten begreifen das digitale Datenmanagement nur sehr langsam als Kernaufgabe.
 * Die [\textcolor{linkblue}{NFDI Initiative}](https://www.nfdi.de/) versucht, das deutsche digitale Forschungsdatenmanagement zu verbessern.
 * NFDI ist Projekt-basiert und somit nicht in einem nachhaltigen Rahmen.
-* Nicht alle Wissenschaftler:innen wollen ihre Daten systematisch aufbereiten und der Öffentlichkeit zur Verfügung stelle..
+* Nicht alle Wissenschaftler:innen möchten ihre Daten systematisch aufbereiten und der Öffentlichkeit zur Verfügung stellen.
 * Kulturwandel zu mehr wissenschaftlicher Transparenz und offene öffentlich-finanziert Forschung [Open Research, vgl. z.B. @toelch2018; @miedema2022; @bertram2023] bleibt ein anzustrebenes Ideal.
 
 
@@ -336,7 +336,7 @@ Datenimport und Datenexport
   \item \small Trennung von Datenfeldern (Spalten) durch Komma (.csv) oder Tab (.tsv)
   \item Trennung von Datensätzen (Zeilen) durch Zeilenumbruch
   \end{itemize}
-\item Erste Zeile (Kopfdatensatz/Header) ist enthält typischerweise die Definition der Spaltennamen
+\item Erste Zeile (Kopfdatensatz/Header) enthält typischerweise die Definition der Spaltennamen
 \item Typische Struktur:
   \begin{itemize}
   \item \small Zeilen repräsentieren experimentelle Einheiten (z.B. Versuchspersonen)
@@ -476,7 +476,7 @@ Elemente von .json Dateien
 
 	$\quad\quad$ \{
 
-	$\quad\quad\quad\quad$  ``Deskriptive Statistik'' : \{``Abgeschlossen" : true,  ``Note''  : 1.0 \},
+	$\quad\quad\quad\quad$  ``Deskriptive Statistik'' : \{``Abgeschlossen'' : true,  ``Note''  : 1.0 \},
 
 	$\quad\quad\quad\quad$  ``Inferenzstatistik'' : \{``Abgeschlossen'' : false, ``Note'': null \}
 
@@ -780,15 +780,15 @@ print(daten_pfad)
 \setstretch{1.1}
 ```{r, eval = F}
 skript_pfad         <- sys.frame(1)$ofile        # Pfad des Skripts
-skriptordnder_pfad  <- dirname(r_skript_pfad)    # Ordner, in dem sich das Skript befindet
-print(skriptordnder_pfad)
+skriptordner_pfad   <- dirname(skript_pfad)      # Ordner, in dem sich das Skript befindet
+print(skriptordner_pfad)
 ```
 
-\tiny
+\footnotesize
 ```{r, eval = T, echo = F}
-r_skript_pfad <- normalizePath(knitr::current_input())
-r_skriptordnder_pfad  <- dirname(r_skript_pfad)
-print(r_skriptordnder_pfad)
+skript_pfad <- normalizePath(knitr::current_input())
+r_skriptordner_pfad  <- dirname(skript_pfad)
+print(r_skriptordner_pfad)
 
 ```
 
@@ -840,58 +840,83 @@ print(D)
 
 \vfill
 
-
-
 # Datenimport
 \setstretch{1.5}
 
-`read.table()` 
-
 \small
 
-* ist die zentrale Funktion zum Einlesen von CSV Dateien.
-* liest eine Datei ein und speichert ihre Inhalte in einem Dataframe.
-* bietet eine Vielzahl weiterer Spezifikationsmöglichkeiten.
+`read.csv()` ist ein Wrapper für `read.table()` mit Voreinstellungen `sep = ","` und `header = TRUE`.
 
-\vspace{2mm}
 \tiny
 \setstretch{1.2}
+
+\vspace{3mm}
+
 ```{r, eval = T}
-#| label: Load data (read.table)
-work_dir_path <- getwd()                                     # Pfad zum Working directory
-data_dir_path <- file.path(dirname(work_dir_path), "Daten")  # Datenverzeichnispfad
-file_name     <- "cushny.csv"                                # (base) filename
-file_path     <- file.path(data_dir_path, file_name)         # filepath 
-D             <- read.csv(file_path, header = TRUE, sep = ",")  # Einlesen der Datei
+file_path <- file.path(data_dir_path, "cushny.csv")          # Pfad zur .csv Datei
+
+# Beide Varianten liefern dasselbe Ergebnis
+D         <- read.csv(file_path)                             # Einlesen der .csv Datei
+D         <- read.table(file_path, sep = ",", header = TRUE) # Einlesen der .csv Datei
 print(D)
 ```
 
 \vfill
 
-
 # Datenimport
 \setstretch{1.5}
 
-Einige weitere Spezifikationen bei Anwendung von `read.csv()` sind
+\small
 
+Ein paar weitere Beispiele für Spezifikationen sind
 \small
 
 * `sep` für die Auswahl des Separators
-* `dec` für die Auswahl des Dezimalpunktes
+* `dec` für die Auswahl des Dezimalzeichens
 * `nrow` für die Anzahl der einzulesenden Zeilen
-* `skip` für die Anzahl der am Anfang der Datei zu überspringenden Zeilen (inkl. Header)
+* `skip` für die Anzahl der zu überspringenden Zeilen (inkl. Header)
 
+\vfill
 \tiny
-
 ```{r, eval = T}
-D <- read.csv(file_path, header = TRUE, sep = ",", nrow = 2)  # Auswahl von nur 2 Zeilen
+D <- read.csv(file_path, header = TRUE, sep = ",", nrow = 2)  # Nur 2 Zeilen einlesen
 print(D)
-D <- read.csv(file_path, header = TRUE, sep = ",", skip = 7)  # Auswahl ab Zeile 7
+D <- read.csv(file_path, header = TRUE, sep = ",", skip = 7)  # Ab Zeile 7 einlesen
 print(D)
 ```
 
 \vfill
 
+# Weitere Möglichkeiten des Datenimports
+
+Textdateien (.csv, .tsv, .txt, .json)
+
+
+\small 
+
+* `read.csv2()`, `read.delim()`, `read.delim2()` als `read.table()` Varianten.
+* `readlines` für low-level Textdateiimport.
+* `fromJSON()` aus dem Paket `rjson` für .json Dateien.
+
+\vspace{2mm}
+
+\normalsize
+Binäre Dateien (.xlsx, .sav, .mat)
+\small
+
+* `read.xlsx()` und  `read.xlsx2()` aus dem Paket `xlsx` für Excel .xlsx Dateien.
+* `read.spss()` aus dem Paket `foreign` für SPSS .sav Dateien.
+* `readMat` aus dem Paket `R.matlab` für Matlab .mat Dateien.
+
+\vspace{2mm}
+\normalsize
+Für Datenbanken:
+
+\footnotesize
+
+* SQL Datenbanken können mithilfe der Pakete `DBI` und `RSQLite` abgefragt werden.
+
+\vfill
 
 # Import interner R Datensätze
 \setstretch{1.4}
@@ -902,18 +927,18 @@ R und R packages beinhalten eine Vielzahl von Beispieldatensätzen.
 
 Die Core R Datensätze werden aus der R Konsole mit `data()` angezeigt.
 
-Die Datensätze in Paket P werden mit `data(package =  "P")` angezeigt.
+Die Datensätze in Paket P werden mit \texttt{data(package = \string"P\string")} angezeigt.
 
 \vspace{1mm}
 ```{r, eval = F}
-install.packages("psychTools")	# Installation des Pakets psychTools
-data(package = "psychTools") 	# Anzeige der psychTools Datensaetze
+install.packages("psychTools") # Installation des Pakets psychTools
+data(package = "psychTools")   # Anzeige der psychTools Datensaetze
 ```
 
 ![](../VL_Abbildungen/pds_6_r_datasets.pdf)
 
 
-Alle Datensätze werden mit `data(package = .packages(TRUE))` angezeigt.
+Alle Datensätze aller installierten Pakete werden mit `data(package = .packages(TRUE))` angezeigt.
 
 Nach Installation und Laden eines Pakets werden Datensätze mit `data()` geladen.
 
@@ -924,37 +949,7 @@ data(cushny)           # Laden des cushny Datensatzes aus psychTools
 ```
 
 
-# Weitere Möglichkeiten des Datenimports
-
-CSV und Text Dateien
-
-\small 
-
-* `read.csv()`, `read.csv2()`, `read.delim()`, `read.delim2()` als `read.table()` Varianten.
-* `readlines` für low-level Textdateiimport.
-* `fromJSON()` aus dem Paket `rjson` für .json Dateien.
-
-\vspace{2mm}
-\normalsize
-Binäre Dateien
-\small
-
-* `read.xlsx()` und  `read.xlsx2()` aus dem Paket `xlsx` für Excel .xlsx Dateien.
-* `read.spss()` aus dem Paket `foreign` für SPSS .sav Dateien.
-* `readMat` aus dem Paket `R.matlab` für Matlab .mat Dateien.
-
-\vspace{2mm}
-\normalsize
-Webdaten und Datenbanken
-\small
-
-* \small Twitterdaten können mithilfe der Pakete `rtweet` oder `twitteR` eingelesen werden.
-* SQL Datenbanken können mithilfe der Pakete `DBI` und `RSQLite` abgefragt werden.
-
-\vfill
-
-
-# Datenexport mit `write.table()`
+# Datenexport
 \setstretch{1.5}
 \vspace{1mm}
 
@@ -962,16 +957,16 @@ Webdaten und Datenbanken
 
 \small
 
-* ...ist die zentrale Funktion zum Speichern von Daten in CSV Dateien.
-* ...erzeugt eine Datei und schreibt Daten eines Dataframes hinein.
+* ist die zentrale Funktion zum Speichern von Daten in .csv oder .tsv Dateien.
+* erzeugt eine Datei und schreibt Daten eines Dataframes hinein.
 
 \normalsize
 Spezifikationen bei der Anwendung
 
 \small
 
-* Der Dateipfad wird mit dem Argument `file` angegeben, der Werteseparator mit `sep`
-* Das Argument `row.names = FALSE` unterdrückt das Schreiben von Zeilennahmen
+* Der Dateipfad wird mit dem Argument `file` angegeben, der Werteseparator mit `sep`.
+* Das Argument `row.names = FALSE` unterdrückt das Schreiben von Zeilennahmen.
 
 \tiny
 \setstretch{1.1}
@@ -993,21 +988,6 @@ Ergebnisdatei student.csv
 
 ![](../VL_Abbildungen/pds_6_writetable.pdf){width="30%"}
 
-
-\AtBeginSection{}
-\section{Programmierübungen und Selbstkontrollfragen}
-# Programmierübungen und Selbstkontrollfragen ====================================== {.plain}
-
-\large
-\setstretch{2.5}
-\vfill
-
-Daten
-
-FAIR Prinzipien
-
-Datenformate
-
-Verzeichnismanagement
-
-Datenimport und Datenexport
+# Referenzen
+\footnotesize
+\setstretch{1.4}
