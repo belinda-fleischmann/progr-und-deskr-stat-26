@@ -779,16 +779,16 @@ print(daten_pfad)
 \footnotesize
 \setstretch{1.1}
 ```{r, eval = F}
-skript_pfad         <- sys.frame(1)$ofile        # Pfad des Skripts
-skriptordner_pfad   <- dirname(skript_pfad)      # Ordner, in dem sich das Skript befindet
-print(skriptordner_pfad)
+skriptpfad             <- sys.frame(1)$ofile        # Pfad des Skripts
+skriptordner           <- dirname(skriptpfad)       # Ordner, in dem sich das Skript befindet
+print(skriptordner)
 ```
 
 \footnotesize
 ```{r, eval = T, echo = F}
-skript_pfad <- normalizePath(knitr::current_input())
-r_skriptordner_pfad  <- dirname(skript_pfad)
-print(r_skriptordner_pfad)
+skriptpfad <- normalizePath(knitr::current_input())
+r_skriptordner  <- dirname(skriptpfad)
+print(r_skriptordner)
 
 ```
 
@@ -830,11 +830,11 @@ Verzeichnismanagement
 \setstretch{1.2}
 ```{r, eval = T}
 #| label: Load data
-work_dir_path <- getwd()                                     # Pfad zum Working directory
-data_dir_path <- file.path(dirname(work_dir_path), "Daten")  # Datenverzeichnispfad
-file_name     <- "cushny.csv"                                # (base) filename
-file_path     <- file.path(data_dir_path, file_name)         # filepath 
-D             <- read.csv(file_path)                         # Einlesen der Datei
+work_dir      <- getwd()                                     # Pfad zum Working directory
+datenordner   <- file.path(dirname(work_dir), "Daten")       # Datenverzeichnispfad
+dateiname     <- "cushny.csv"                                # (base) filename
+dateipfad     <- file.path(datenordner, dateiname)           # filepath 
+D             <- read.csv(dateipfad)                         # Einlesen der Datei
 print(D)
 ```
 
@@ -853,11 +853,11 @@ print(D)
 \vspace{3mm}
 
 ```{r, eval = T}
-file_path <- file.path(data_dir_path, "cushny.csv")          # Pfad zur .csv Datei
+dateipfad <- file.path(datenordner, "cushny.csv")            # Pfad zur .csv Datei
 
 # Beide Varianten liefern dasselbe Ergebnis
-D         <- read.csv(file_path)                             # Einlesen der .csv Datei
-D         <- read.table(file_path, sep = ",", header = TRUE) # Einlesen der .csv Datei
+D         <- read.csv(dateipfad)                             # Einlesen der .csv Datei
+D         <- read.table(dateipfad, sep = ",", header = TRUE) # Einlesen der .csv Datei
 print(D)
 ```
 
@@ -879,9 +879,9 @@ Ein paar weitere Beispiele für Spezifikationen sind
 \vfill
 \tiny
 ```{r, eval = T}
-D <- read.csv(file_path, header = TRUE, sep = ",", nrow = 2)  # Nur 2 Zeilen einlesen
+D <- read.csv(dateipfad, header = TRUE, sep = ",", nrow = 2)  # Nur 2 Zeilen einlesen
 print(D)
-D <- read.csv(file_path, header = TRUE, sep = ",", skip = 7)  # Ab Zeile 7 einlesen
+D <- read.csv(dateipfad, header = TRUE, sep = ",", skip = 7)  # Ab Zeile 7 einlesen
 print(D)
 ```
 
@@ -971,14 +971,14 @@ Spezifikationen bei der Anwendung
 \tiny
 \setstretch{1.1}
 ```{r}
-input_file_path  <- file.path(data_dir_path, "cushny.csv")  # Pfad zur Datei, die eingelesen werden soll
-output_file_path <- file.path(data_dir_path, "student.csv") # Pfad der Datei, die geschrieben werden soll
+input_dateipfad  <- file.path(datenordner, "cushny.csv")    # Pfad zur Datei, die eingelesen werden soll
+output_dateipfad <- file.path(datenordner, "student.csv")   # Pfad der Datei, die geschrieben werden soll
 
-D <- read.table(input_file_path, header = TRUE, sep = ",")  # Dateneinlesen
+D <- read.table(input_dateipfad, header = TRUE, sep = ",")  # Dateneinlesen
 D <- D[,5:6]                                                # Reduktion des Dataframes
 write.table(                                                # .csv Schreibfunktion
     D,                                                      # Zu speichernder Dataframe
-    file = output_file_path,                                # Dateinname
+    file = output_dateipfad,                                # Dateinname
     sep = ",",                                              # Werteseparator fuer .csv
     row.names = F)                                          # keine Zeilennamen
 ```
