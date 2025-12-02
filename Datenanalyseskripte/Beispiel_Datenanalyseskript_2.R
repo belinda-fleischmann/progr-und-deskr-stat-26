@@ -11,7 +11,7 @@
 # Verzeichnis- und Datenmanagement
 # -----------------------------------------------------------------------------
 skriptpfad     <- sys.frame(1)$ofile         # Pfad des Skripts
-skriptordner   <- dirname(skriptpfad)            # Übergeordnetes Verzeichnis, in dem sich dieses R Skript befindet
+skriptordner   <- dirname(skriptpfad)        # Übergeordnetes Verzeichnis, in dem sich dieses R Skript befindet
 projektordner  <- dirname(skriptordner)      # Übergeordnetes Verzeichnis, in dem sich der Ordner /Daten befindet
 datenordner    <- file.path(projektordner,   # Daten-Ordner, der sich im Projektordner befindet
                             "Daten")
