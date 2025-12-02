@@ -1,28 +1,28 @@
-# Beispiel eines einfaches Datenanalyseskripts
+# Beispiel eines einfachen Datenanalyseskripts
 # -----------------------------------------------------------------------------
 # Dieses Skript lädt den Datensatz "Beispieldaten.csv",
 # berechnet Mittelwerte und Korrelation,
-# und visualisiert die Daten in einem Streu- und einem Balnkendiagramm.
+# und visualisiert die Daten in einem Streu- und einem Balkendiagramm.
 # -----------------------------------------------------------------------------
-# Seminar "Progammierung und Deskriptive Statistik" WiSe 2025/2026
+# Seminar "Programmierung und Deskriptive Statistik" WiSe 2025/2026
 # Autorin: Belinda Fleischmann
 # Datum:   02.12.2025
 
 # Verzeichnis- und Datenmanagement
 # -----------------------------------------------------------------------------
-skript         <- sys.frame(1)$ofile         # Pfad des Skripts
-skriptordner   <- dirname(skript)            # Übergordnetes Verzeichnis, in dem sich dieses R Skript befindet
-projektordner  <- dirname(skriptordner)      # Übergordnetes Verzeichnis, in dem sich der Ordner /Daten befindet
-datenordner    <- file.path(projektordner,   # Daten-Ordner, der sich Projektordner befindet
+skriptpfad     <- sys.frame(1)$ofile         # Pfad des Skripts
+skriptordner   <- dirname(skriptpfad)            # Übergeordnetes Verzeichnis, in dem sich dieses R Skript befindet
+projektordner  <- dirname(skriptordner)      # Übergeordnetes Verzeichnis, in dem sich der Ordner /Daten befindet
+datenordner    <- file.path(projektordner,   # Daten-Ordner, der sich im Projektordner befindet
                             "Daten")
 
-data_filename  <- "Beispieldaten.csv"        # Dateibezeichnung (filename) der .csv Datei
-data_filepath  <- file.path(datenordner,     # Pfad zur .csv Datei
-                            data_filename)
+dateiname  <- "Beispieldaten.csv"            # Dateibezeichnung (filename) der .csv Datei
+dateipfad  <- file.path(datenordner,         # Pfad zur .csv Datei
+                        dateiname)
 
 # Daten von Festplatte einlesen
 # -----------------------------------------------------------------------------
-daten          <- read.csv(data_filepath)    # Einlesen der Daten
+daten          <- read.csv(dateipfad)        # Einlesen der Daten
 
 # Daten analysieren
 # -----------------------------------------------------------------------------
@@ -44,9 +44,9 @@ cat("Mittelwert der zweiten Variable: ",     # Ausgabe Mittelwert Var_2
 cat("Korrelation: ",                         # Ausgabe Korrelation
     korrelation, "\n")
 
-# Visualisierung der Var_2
+# Visualisierung der Daten
 # -----------------------------------------------------------------------------
-plot(daten$Var_1, daten$Variable2)           # Streudigramm
+plot(daten$Var_1, daten$Var_2)               # Streudiagramm
 barplot(                                     # Balkendiagramm
   c("Var_1" = mittelwert_1,                  # Input: Höhe der Balken mit Namen
     "Var_2" = mittelwert_2)
