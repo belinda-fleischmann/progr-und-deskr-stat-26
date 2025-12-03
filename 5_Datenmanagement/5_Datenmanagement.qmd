@@ -133,29 +133,6 @@ Datenimport und Datenexport
 [\textcolor{linkblue}{Aktuelle Empfehlungen zu Datenschutz und Forschungsdaten (03/2017)}](https://www.rfii.de/download/rfii-empfehlungen-2017-datenschutz-und-forschungsdaten/)
 
 
-
-# Metadaten
-\vspace{2mm}
-
-
-
-\textcolor{darkblue}{Metadaten} repräsentieren Information über andere Daten. Man unterscheidet dabei beispielsweise deskriptive, strukturelle und administrative Metadaten [@riley2017; @ulrich2022]
-\vspace{2mm}
-
-**Deskriptive Metadaten** dienen dem Auffinden und der Identifikation einer
-Datenquelle. Beispiele sind etwa Titel der einer wissenschaftlichen Publikation oder ihr digital object identifier [DOI, @rosenblatt1997]. DOIs sind alphanumerische Kennungen, die digitale Objekte eindeutig identifizieren und als persistente Links zu Objekten im Internet funktionieren.
-\vspace{2mm}
-
-**Strukturelle Metadaten**  sind Metadaten über Datencontainer und repräsentieren den strukturellen Aufbau einer Datenquelle. Beispiele sind die Ordnung der Seiten eines Buches oder die for-Schleifenenkodierung dreidimensionaler Datenobjekte. 
-\vspace{2mm}
-
-**Administrative Metadaten** sind Daten, die das Management einer Datenquelle
-erleichtern. Beispiele sind die Provenienz, das Dateiformat, die Zugangsrechte,
-oder weitere technische Informationen zu einer Datenquelle.
-
-\vfill
-
-
 \AtBeginSection{}
 \section{FAIR Prinzipien}
 # FAIR Prinzipien ====================================== {.plain}
@@ -173,6 +150,7 @@ Datenformate
 Verzeichnismanagement
 
 Datenimport und Datenexport
+
 # Das FAIR Datenideal
 
 \vspace{1cm}
@@ -194,7 +172,28 @@ Das \textcolor{darkblue}{FAIR Ideal} zum Forschungsdatenmanagement hat seinen Ur
 
 \vspace{5mm}
 
-Die [\textcolor{linkblue}{Fair Prinzipien}](https://www.go-fair.org/fair-principles/) besagt im Kern, dass Forschungsdaten Findable, Accessible, Interoperable, und Reusable für Menschen und Maschinen aufbereitet und vorgehalten werden sollen. Speziell formuliert das FAIR Datenideal folgende Ansprüche an das Management von Forschungs(meta)daten:
+Die [\textcolor{linkblue}{Fair Prinzipien}](https://www.go-fair.org/fair-principles/) besagt im Kern, dass Forschungsdaten Findable, Accessible, Interoperable, und Reusable für Menschen und Maschinen aufbereitet und vorgehalten werden sollen. Speziell formuliert das FAIR Datenideal folgende Ansprüche an das Management von Forschungs(meta)daten.
+
+
+# Metadaten
+\vspace{2mm}
+
+\textcolor{darkblue}{Metadaten} repräsentieren Information über andere Daten. Man unterscheidet dabei beispielsweise deskriptive, strukturelle und administrative Metadaten [@riley2017; @ulrich2022]
+\vspace{2mm}
+
+**Deskriptive Metadaten** dienen dem Auffinden und der Identifikation einer
+Datenquelle. Beispiele sind etwa Titel der einer wissenschaftlichen Publikation oder ihr digital object identifier [DOI, @rosenblatt1997]. DOIs sind alphanumerische Kennungen, die digitale Objekte eindeutig identifizieren und als persistente Links zu Objekten im Internet funktionieren.
+\vspace{2mm}
+
+**Strukturelle Metadaten**  sind Metadaten über Datencontainer und repräsentieren den strukturellen Aufbau einer Datenquelle. Beispiele sind die Ordnung der Seiten eines Buches oder die for-Schleifenenkodierung dreidimensionaler Datenobjekte. 
+\vspace{2mm}
+
+**Administrative Metadaten** sind Daten, die das Management einer Datenquelle
+erleichtern. Beispiele sind die Provenienz, das Dateiformat, die Zugangsrechte,
+oder weitere technische Informationen zu einer Datenquelle.
+
+\vfill
+
 
 # Findability (Auffindbarkeit)
 \setstretch{2.4}
@@ -823,7 +822,6 @@ Verzeichnismanagement
 
 * ist die zentrale Funktion zum Einlesen von CSV Dateien.
 * liest eine Datei ein und speichert ihre Inhalte in einem Dataframe.
-* bietet eine Vielzahl weiterer Spezifikationsmöglichkeiten.
 
 \vspace{2mm}
 \tiny
@@ -831,14 +829,59 @@ Verzeichnismanagement
 ```{r, eval = T}
 #| label: Load data
 work_dir      <- getwd()                                     # Pfad zum Working directory
-datenordner   <- file.path(dirname(work_dir), "Daten")       # Datenverzeichnispfad
+kursordner    <- dirname(work_dir)                           # Kursordner
+datenordner   <- file.path(kursordner, "Daten")              # Datenverzeichnispfad
 dateiname     <- "cushny.csv"                                # (base) filename
-dateipfad     <- file.path(datenordner, dateiname)           # filepath 
+dateipfad     <- file.path(datenordner, dateiname)           # filepath
 D             <- read.csv(dateipfad)                         # Einlesen der Datei
 print(D)
 ```
 
 \vfill
+
+
+# Datenimport
+\setstretch{1.5}
+
+\vfill
+
+\small
+
+Im Folgenden werden die einzelnen Schritte der oben verwendeten Dateipfadkonstruktion ausgegeben
+
+\vfill
+
+\vspace{2mm}
+\tiny
+\setstretch{1.4}
+
+```{r, eval = T}
+#| label: show path
+work_dir      <- getwd()                                     # Pfad zum Working directory
+print(work_dir)
+```
+\vspace{2mm}
+
+```{r, eval = T}
+kursordner    <- dirname(work_dir)                           # Kursordner
+print(kursordner)
+```
+\vspace{2mm}
+
+```{r, eval = T}
+datenordner   <- file.path(kursordner, "Daten")              # Datenverzeichnispfad
+print(datenordner)
+```
+\vspace{2mm}
+
+```{r, eval = T}
+dateiname     <- "cushny.csv"                                # (base) filename
+dateipfad     <- file.path(datenordner, dateiname)           # filepath
+print(dateipfad)
+```
+
+\vfill
+
 
 # Datenimport
 \setstretch{1.5}
