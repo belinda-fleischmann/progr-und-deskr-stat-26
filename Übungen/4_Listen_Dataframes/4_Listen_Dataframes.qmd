@@ -46,6 +46,6 @@ format:
     \begin{enumerate}
       \item Vergeben Sie aussagekräftige Spaltenbezeichnungen und geben Sie den Dataframe aus.
       \item Manipulieren Sie eine Spalte Ihres Dataframes mithilfe des \texttt{\$}-Operators und einer arithmetischen Operation und geben Sie den veränderten Dataframe aus.
-      \item Fügen Sie Ihrem Dataframe eine neue Spalte hinzu, die sich aus Berechnungen mit mindestens bestehenden Spalten ergibt, und geben Sie den erweiterten Dataframe aus.
+      \item Fügen Sie Ihrem Dataframe eine neue Spalte hinzu, deren Werte sich aus einer Berechnung mit mindestens zwei bestehenden Spalten ergeben, und geben Sie den erweiterten Dataframe aus.
     \end{enumerate}
 \end{enumerate}
