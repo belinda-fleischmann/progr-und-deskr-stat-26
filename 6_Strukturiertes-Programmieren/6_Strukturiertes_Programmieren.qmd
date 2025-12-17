@@ -557,6 +557,7 @@ print(B)
 Kombination von geschachtelten Schleifen mit `if`-statement:
 
 \vspace{2mm}
+\setstretch{1.1}
 \footnotesize
 ```{r, echo = T, eval = T}
 # Eine Matrix mit Spaltenindizes befüllen, wenn Spaltenindex >= Zeilenindex
@@ -576,9 +577,6 @@ for (i in 1:n) {                       # Äußere Schleife: iterieren der Zeilen
 }
 print(C)
 ```
-
-\vfill
-
 
 
 # Kontrollstrukturen: `while` -Schleifen
@@ -719,7 +717,7 @@ print(rechenergebnis)
 \textcolor{darkcyan}{Beispiel (fortgeführt)}
 
 \footnotesize
-\textbf{Problemanalyse}:Im Folgenden wird die Variable \texttt{listen\_element} über \texttt{print()} bzw. \texttt{cat()} inspiziert.
+\textbf{Problemanalyse}: Im Folgenden wird die Variable \texttt{listen\_element} über den Printbefehl \texttt{cat()} inspiziert.
 
 \vfill
 
