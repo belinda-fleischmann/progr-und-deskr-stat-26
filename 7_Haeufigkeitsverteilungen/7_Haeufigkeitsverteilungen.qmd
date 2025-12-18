@@ -329,7 +329,7 @@ Die **absoluten Häufigkeiten** einer kategorialen Variable können in R mit der
 y        <- D$Pre.BDI                  # double vector der Pre BDI Werte
 n        <- length(y)                  # Anzahl der Datenwerte (hier: 100)
 H        <- as.data.frame(table(y))    # absolute Häufigkeitsverteilung als Dataframe
-names(H) <- c("w", "ah")               # Benennen der Spalten im Dataframe
+names(H) <- c("w", "h")                # Benennen der Spalten im Dataframe
 ```
 
 
@@ -342,7 +342,7 @@ Die **relativen Häufigkeiten** erhält man, indem man die absoluten Häufigkeit
 \setstretch{1.2}
 \footnotesize
 ```{r, eval = T}
-H$rh     <- H$ah / n                   # Neue Spalte mit relativen Häufigkeiten
+H$r      <- H$h / n                    # Neue Spalte mit relativen Häufigkeiten
 print(H)                               # Ausgabe des Dataframes
 ```
 
@@ -369,7 +369,7 @@ Visualisierung der absoluten Häufigkeitsverteilung mit `barplot()`
 \setstretch{1.1}
 
 ```{r, eval = F}
-h          <- H$ah            # Kopie der absoluten Häufigkeiten in einen Vektor
+h          <- H$h             # Kopie der absoluten Häufigkeiten in einen Vektor
 names(h)   <- H$w             # Den Häufigkeitswerten die entsprechenden Kategorien zuweisen
 barplot(                      # Balkendiagramm
   h,                          # absolute Haeufigkeiten
@@ -441,7 +441,7 @@ Absolute Häufigkeitsverteilung aller Pre-BDI Werte
 \vspace{4mm}
 
 ```{r, echo = F, eval = F}
-h           <- H$ah                 # h(w) Werte
+h           <- H$h                  # h(w) Werte
 names(h)    <- H$w                  # barplot braucht w Werte als names
 barplot(                            # Balkendiagramm
   h,                                # absolute Haeufigkeiten
@@ -562,10 +562,10 @@ Bemerkungen
 
 \begin{center}
 \begin{tabular}{ll} 
-$k := \lceil \frac{b_k - b_0}{h} \rceil$ & Bestimmung der Anzahl der Klassen aus gewünschter Klassenbreite $h$ \\
+$k := \lceil \frac{b_k - b_0}{d} \rceil$ & Bestimmung der Anzahl der Klassen aus gewünschter Klassenbreite $d$ \\
 $k := \lceil \sqrt{n} \rceil$ & Klassenanzahl in Excel \\
 $k := \lceil \log_2 n + 1 \rceil$ & Implizite Normalverteilungsannahme (Sturges, 1926) \\
-$h := 3.49 \cdot \frac{S}{\sqrt[3]{n}}$ & Berechnung $h$ nach Scott (1979): Min. MSE Dichteschätzung bei Normalverteilung
+$d := 3.49 \cdot \frac{S}{\sqrt[3]{n}}$ & Berechnung $d$ nach Scott (1979): Min. MSE Dichteschätzung bei Normalverteilung
 \end{tabular}
 \end{center}
 
@@ -574,7 +574,7 @@ Berechnung und Visualisierung von Histogrammen mit `hist()`
 
 \small
 * Die Klassen $[b_{j-1}, b_{j}[, j = 1,...,k$ werden als Argument `breaks` festgelegt
-* `breaks` ist der atomic vector c$(b_0,b_1,...,b_k)$ mit Länge $k + 1$
+* `breaks` ist der R Vector c$(b_0,b_1,...,b_k)$ mit Länge $k + 1$
 * Per default benutzt `hist()` eine Modifikation der Sturges Empfehlung $k = \lceil \log_2 n + 1\rceil$
 * `hist()` bietet eine Vielzahl weiterer Spezifikationsmöglichkeiten
 
@@ -616,12 +616,12 @@ xlab    = "",                                                                   
 main    = "Pre-BDI, R Default")                                                 # Titel
 dev.copy2pdf(file = file.path(abbildungsordner, "pds_7_hg_0.pdf"), width = 8, height = 5) # PDF Speicherung                                                                          
 
-# Histogramm mit gewünschter Klassenbreite h = 1
-h       <- 1                                                                      # gewünschte Klassenbreite
+# Histogramm mit gewünschter Klassenbreite d = 1
+d       <- 1                                                                      # gewünschte Klassenbreite
 b_0     <- min(y)                                                                 # b_0
 b_k     <- max(y)                                                                 # b_k
-k       <- ceiling((b_k - b_0) / h)                                               # Anzahl der Klassen
-b       <- seq(b_0, b_k, by = h)                                                  # Klassen [b_{j-1}, b_j[
+k       <- ceiling((b_k - b_0) / d)                                               # Anzahl der Klassen
+b       <- seq(b_0, b_k, by = d)                                                  # Klassen [b_{j-1}, b_j[
 hist(                                                                             # Histogramm
 y,                                                                                # Datensatz
 breaks  = b,                                                                     # breaks
@@ -629,14 +629,14 @@ xlim    = c(x_min, x_max),                                                      
 ylim    = c(y_min, y_max),                                                       # y Achsen Limits
 ylab    = "Häufigkeit",                                                          # y-Achsenbezeichnung
 xlab    = "",                                                                    # x-Achsenbezeichnung
-main    = sprintf("Pre-BDI, k = %.0f, h = %.2f", k, h))                          # Titel
+main    = sprintf("Pre-BDI, k = %.0f, d = %.2f", k, d))                          # Titel
 dev.copy2pdf(file  = file.path(abbildungsordner, "pds_7_hg_1.pdf"), width = 8, height = 5) # PDF Speicherung
 
-# Histogramm mit gewünschter Klassenbreite h =1.5
-h       <- 1.5                                                                    # gewünschte Klassenbreite
+# Histogramm mit gewünschter Klassenbreite d =1.5
+d       <- 1.5                                                                    # gewünschte Klassenbreite
 b_0     <- min(y)                                                                 # b_0
 b_k     <- max(y)                                                                 # b_k
-k       <- ceiling((b_k - b_0)/h)                                                 # Anzahl der Klassen
+k       <- ceiling((b_k - b_0)/d)                                                 # Anzahl der Klassen
 b       <- seq(b_0, b_k, len = k + 1)                                                  # Klassen [b_{j-1}, b_j[
 hist(                                                                             # Histogramm
 y,                                                                                # Datensatz
@@ -645,14 +645,14 @@ xlim    = c(x_min, x_max),                                                      
 ylim    = c(y_min, y_max),                                                       # y Achsen Limits
 ylab    = "Häufigkeit",                                                          # y-Achsenbezeichnung
 xlab    = "",                                                                    # x-Achsenbezeichnung
-main    = sprintf("Pre-BDI, k = %.0f, h = %.2f", k, h))                          # Titel
+main    = sprintf("Pre-BDI, k = %.0f, d = %.2f", k, d))                          # Titel
 dev.copy2pdf(file  = file.path(abbildungsordner, "pds_7_hg_2.pdf"), width = 8, height = 5) # PDF Speicherung
 
 # Histogramm mit Excel Standard
 n       <- length(y)                                                              # Anzahl Datenwerte
 k       <- ceiling(sqrt(n))                                                       # Anzahl der Klassen
 b       <- seq(b_0, b_k, len = k + 1)                                                 # Klassen [b_{j-1}, b_j[
-h       <- b[2] - b[1]                                                            # Klassenbreite
+d       <- b[2] - b[1]                                                            # Klassenbreite
 hist(
 y,                                                                                # Datensatz
 breaks  = b,                                                                     # breaks
@@ -660,14 +660,14 @@ xlim    = c(x_min, x_max),                                                      
 ylim    = c(y_min, y_max),                                                       # y Achsen Limits
 ylab    = "Häufigkeit",                                                          # y-Achsenbezeichnung
 xlab    = "",                                                                    # x-Achsenbezeichnung
-main    = sprintf("Pre-BDI, k = %.0f, h = %.2f", k, h))                          # Titel
+main    = sprintf("Pre-BDI, k = %.0f, d = %.2f", k, d))                          # Titel
 dev.copy2pdf(file  = file.path(abbildungsordner, "pds_7_hg_3.pdf"), width = 8, height = 5) # PDF Speicherung
 
 # Sturges
 n       <- length(y)                                                              # Anzahl Datenwerte
 k       <- ceiling(log2(n)+1)                                                     # Anzahl der Klassen
 b       <- seq(b_0, b_k, len = k + 1)                                                 # Klassen [b_{j-1}, b_j[
-h       <- b[2] - b[1]                                                            # Klassenbreite
+d       <- b[2] - b[1]                                                            # Klassenbreite
 hist(                                                                             # Histogramm
 y,                                                                                # Datensatz
 breaks  = b,                                                                     # breaks
@@ -675,16 +675,16 @@ xlim    = c(x_min, x_max),                                                      
 ylim    = c(y_min, y_max),                                                       # y Achsen Limits
 ylab    = "Häufigkeit",                                                          # y-Achsenbezeichnung
 xlab    = "",                                                                    # x-Achsenbezeichnung
-main    = sprintf("Pre-BDI, k = %.0f, h = %.2f", k, h))                          # Titel
+main    = sprintf("Pre-BDI, k = %.0f, d = %.2f", k, d))                          # Titel
 dev.copy2pdf(file  = file.path(abbildungsordner, "pds_7_hg_4.pdf"), width = 8, height = 5) # PDF Speicherung
 
 # Scott
 n       <- length(y)                                                              # Anzahl Datenwerte
 S       <- sd(y)                                                                  # Stichprobenstandardabweichung
-h       <- ceiling(3.49*S/(n^(1/3)))                                              # Klassenbreite
-k       <- ceiling((b_k - b_0)/h)                                                 # Anzahl der Klassen
+d       <- ceiling(3.49*S/(n^(1/3)))                                              # Klassenbreite
+k       <- ceiling((b_k - b_0)/d)                                                 # Anzahl der Klassen
 b       <- seq(b_0, b_k, len = k + 1)                                                 # Klassen [b_{j-1}, b_j[
-h       <- b[2] - b[1]                                                            # Klassenbreite
+d       <- b[2] - b[1]                                                            # Klassenbreite
 hist(                                                                             # Histogramm
 y,                                                                                # Datensatz
 breaks  = b,                                                                     # breaks
@@ -692,7 +692,7 @@ xlim    = c(x_min, x_max),                                                      
 ylim    = c(y_min, y_max),                                                       # y Achsen Limits
 ylab    = "Häufigkeit",                                                          # y-Achsenbezeichnung
 xlab    = "",                                                                    # x-Achsenbezeichnung
-main    = sprintf("Pre-BDI, k = %.0f, h = %.2f", k, h))                          # Titel
+main    = sprintf("Pre-BDI, k = %.0f, d = %.2f", k, d))                          # Titel
 dev.copy2pdf(file  = file.path(abbildungsordner, "pds_7_hg_5.pdf"), width = 8, height = 5) # PDF Speicherung
 ```
 
@@ -731,29 +731,29 @@ Berechnung von Klassenanzahlen und `breaks` Argument
 \setstretch{1.1}
 ```{r, eval = F}
 # Histogramm mit gewuenschter Klassenbreite
-h 	<- 1                            # gewuenschte Klassenbreite
+d   <- 1                            # gewuenschte Klassenbreite
 b_0 <- min(y)                       # b_0
 b_k <- max(y)                       # b_k
-k   <- ceiling((b_k - b_0) / h)     # Anzahl der Klassen
+k   <- ceiling((b_k - b_0) / d)     # Anzahl der Klassen
 b   <- seq(b_0, b_k, len = k + 1)   # Klassen [b_{j-1}, b_j[
 
 # Excelstandard
 n   <- length(y)                    # Anzahl Datenwerte
 k   <- ceiling(sqrt(n))             # Anzahl der Klassen
 b   <- seq(b_0, b_k, len = k + 1)   # Klassen [b_{j-1}, b_j[
-h   <- b[2] - b[1]                  # Klassenbreite
+d   <- b[2] - b[1]                  # Klassenbreite
 
 # Sturges
 n   <- length(y)                    # Anzahl Datenwerte
 k   <- ceiling(log2(n)+1)           # Anzahl der Klassen
 b   <- seq(b_0, b_k, len = k + 1)   # Klassen [b_{j-1}, b_j[
-h   <- b[2] - b[1]                  # Klassenbreite
+d   <- b[2] - b[1]                  # Klassenbreite
 
 # Scott
 n   <- length(y)                    # Anzahl Datenwerte
 S   <- sd(y)                        # Stichprobenstandardabweichung
-h   <- ceiling(3.49*S/(n^(1/3)))    # Klassenbreite
-k   <- ceiling((b_k - b_0)/h)       # Anzahl der Klassen
+d   <- ceiling(3.49*S/(n^(1/3)))    # Klassenbreite
+k   <- ceiling((b_k - b_0)/d)       # Anzahl der Klassen
 b   <- seq(b_0, b_k, len = k + 1)   # Klassen [b_{j-1}, b_j[
 ```
 
@@ -781,20 +781,20 @@ hist(                                                    # Histogramm
   ylim   = c(y_min, y_max),                              # y Achsengrenzen
   ylab   = "Häufigkeit",                                 # y-Achsenbezeichnung
   xlab   = "",                                           # x-Achsenbezeichnung
-  main   = sprintf("Pre-BDI, k = %.0f, h = %.2f", k, h)  # Titel
+  main   = sprintf("Pre-BDI, k = %.0f, d = %.2f", k, d)  # Titel
 )
 ```
 
 
 # Histogramme - \textcolor{darkcyan}{Beispiel}
-Gewünschte Klassenbreite $h := 1$
+Gewünschte Klassenbreite $d := 1$
 \vspace{2mm} 
 
 ![](../VL_Abbildungen/pds_7_hg_1.pdf){width="100%"}
 
 
 # Histogramme - \textcolor{darkcyan}{Beispiel}
-Gewünschte Klassenbreite $h := 1.5$
+Gewünschte Klassenbreite $d := 1.5$
 \vspace{2mm}
 
 ![](../VL_Abbildungen/pds_7_hg_2.pdf){width="100%"}
@@ -808,14 +808,14 @@ Excelstandard $k := \lceil \sqrt{n} \rceil$
 
 
 # Histogramme - \textcolor{darkcyan}{Beispiel}
-nach @sturges_1926 $, k := \lceil \log_2 n + 1\rceil$
+nach @sturges_1926,  $k := \lceil \log_2 n + 1\rceil$
 \vspace{1mm}
 
 ![](../VL_Abbildungen/pds_7_hg_4.pdf){width="100%"}
 
 
 # Histogramme - \textcolor{darkcyan}{Beispiel}
-nach @scott_1979 $, h := 3.49S/\sqrt[3]{n}$
+nach @scott_1979, $d := 3.49S/\sqrt[3]{n}$
 \vspace{1mm}
 
 ![](../VL_Abbildungen/pds_7_hg_5.pdf){width="100%"}
@@ -960,12 +960,12 @@ dev.copy2pdf(
 ```{r}
 #| label: cum rel Häufigkeit
 # Vorbereitung der zu visualisierenden Daten
-R        <- H$R             # R(w) Werte
-names(R) <- H$w             # barplot braucht w Werte als names
+Rw        <- H$R            # R(w) Werte
+names(Rw) <- H$w            # barplot braucht w Werte als names
 
 # Visualisierung der kumulativen relativen Häufigkeitsverteilung
 barplot(                    # Balkendiagramm
-  R,                        # R(w) Werte
+  Rw,                       # R(w) Werte
   col  = "gray90",          # Balkenfarbe
   xlab = "w",               # x Achsenbeschriftung
   ylab = "R(w)",            # y Achsenbeschriftung
@@ -988,7 +988,7 @@ dev.copy2pdf(
 \textcolor{darkcyan}{Kumulative relative Häufigkeitsverteilung der Pre.BDI Werte}
 \vspace{4mm}
 
-![](../VL_Abbildungen/pds_8_kr.pdf)
+![](../VL_Abbildungen/pds_8_kr.pdf){width="85%"}
 
 
 
@@ -1280,8 +1280,6 @@ Kombination von `ecdf()`und `abline()` erlaubt prinzipiell die visuelle Bestimmu
 \setstretch{1.1}
 ```{r}
 #| label: visual quantile henze
-library(latex2exp)                                          # LaTeX Formatierungstool, TeX()
-
 # Daten vorbereiten
 y    <- c(8.5, 1.5, 12, 4.5, 6.0, 3.0, 3.0, 2.5, 6.0, 9.0)  # Beispieldaten (Henze, 2018)
 evf <- ecdf(y)                                              # Evaluation der EVF
@@ -1289,8 +1287,8 @@ evf <- ecdf(y)                                              # Evaluation der EVF
 # Visualisierung der empirischen Verteilungsfunktion
 plot(                                                       # plot() weiß mit ecdf object umzugehen
   evf,                                                      # ecdf Objekt
-  xlab      = TeX("$\\xi$"),                                # x Achsenbeschriftung
-  ylab      = TeX("$F(\\xi)$"),                             # y Achsenbeschriftung
+  xlab      = "x",                                          # x Achsenbeschriftung
+  ylab      = "F(x)",                                       # y Achsenbeschriftung
   verticals = TRUE,                                         # vertikale Linien 
   do.points = FALSE,                                        # keine Punkte
   main      = "Beispiel 80%-Quantil"                        # Titel
@@ -1344,8 +1342,6 @@ cat("0.80 Quantil mit type=1 bestimmt: ",y_p_1,
 \setstretch{1.1}
 ```{r}
 #| label: visual quantile pre.bdi
-library(latex2exp)                         # LaTeX Formatierungstool, TeX()
-
 # Daten vorbereiten
 y   <- D$Pre.BDI                           # Double vector der Pre.BDI Werte
 evf <- ecdf(y)                             # Evaluation der EVF
@@ -1353,8 +1349,8 @@ evf <- ecdf(y)                             # Evaluation der EVF
 # Visualisierung der empirischen Verteilungsfunktion
 plot(                                      # plot() kann mit ecdf object umgehen
   evf,                                     # ecdf Objekt
-  xlab      = TeX("$\\xi$"),               # x Achsenbeschriftung
-  ylab      = TeX("$F(\\xi)$"),            # y Achsenbeschriftung
+  xlab      = "x",                         # x Achsenbeschriftung
+  ylab      = "F(x)",                      # y Achsenbeschriftung
   verticals = TRUE,                        # vertikale Linien 
   do.points = FALSE,                       # keine Punkte
   main      = "Beispiel 80%-Quantil"       # Titel
