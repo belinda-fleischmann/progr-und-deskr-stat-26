@@ -110,31 +110,39 @@ Quantile und Boxplots
 
 
 # Motivation
-\setstretch{1.6}
+\setstretch{1.8}
 \justifying
-\large
-\textcolor{darkblue}{Definition und Ziele der Deskriptive Statistik}
+\normalsize
+\textcolor{darkblue}{Definition und Ziele der Deskriptiven Statistik}
+
+\small
+* \justifying Die Deskriptive Statistik ist die *beschreibende* Statistik.
+* Ziel ist es, Daten der menschlichen Betrachtung zugänglich zu machen.
+* Reine Zahlendarstellungen sind bei großen Datensätzen schwer zu erfassen.
+* Deskriptivstatistiken bieten graphische Darstellungen und zusammenfassende Maßzahlen, die charakteristische Aspekte eines Datensatzes wie seine "durchschnittlicher" Wert oder seine Variabilität beschreiben.
 
 \normalsize
-* Die Deskriptive Statistik ist die *beschreibende* Statistik.
-* Ziel der Deskriptiven Statistik ist es, Daten übersichtlich darzustellen.
-* Deskriptive Statistik ist inbesondere bei großen Datensätzen sinnvoll.
-* Die Deskriptive Statistik berechnet zusammenfassende Maße aus Daten.
-
-\large
 \textcolor{darkblue}{Typische Methoden der Deskriptiven Statistik}
 
-\normalsize
-* Häufigkeitsverteilungen und Histogramme
+\small
+* \justifying Häufigkeitsverteilungen und Histogramme
 * Verteilungsfunktionen und Quantile
 * Maße der zentralen Tendenz und der Datenvariabilität
-* Zusammenhangsmaße
-
-Die Deskriptive Statistik benutzt keine probabilistischen Modelle, 
-aber die Methoden der Deskriptiven Statistik ergeben nur vor dem Hintergrund 
-probabilistischer Modelle Sinn.
 
 
+# Motivation
+\setstretch{1.8}
+\justifying
+\normalsize
+\textcolor{darkblue}{Bezug zu Wahrscheinlichkeitstheorie}
+
+\small
+* \justifying Die Deskriptive Statistik basiert nicht auf der Wahrscheinlichkeitstheorie.
+* Allerdings ergeben viele Aspekte der Deskriptivstatistik erst vor dem Hintergrund wahrscheinlichkeitstheoretischer Betrachtungen Sinn.
+* Umgekehrt sind viele Begriffe der Wahrscheinlichkeitstheorie durch deskriptivstatistische Konzepte motiviert.
+* Auch wenn diese Einheit ohne wahrscheinlichkeitstheoretischen Hintergrund auskommt, erschließt sich seine volle Bedeutung erst im Kontext der auskommt.
+
+\vfill
 
 
 
@@ -165,8 +173,6 @@ Quantile und Boxplots
 \textcolor{darkblue}{Evidenzbasierte Evaluation von Psychotherapieformen bei Depression}
 
 \normalsize
-Welche Therapieform ist bei Depression wirksamer?
-
 ![](../VL_Abbildungen/pds_11_klinische_forschung.pdf){width="110%"}
 
 
@@ -174,7 +180,7 @@ Welche Therapieform ist bei Depression wirksamer?
 \textcolor{darkblue}{Evidenzbasierte Evaluation von Psychotherapieformen bei Depression}
 
 \normalsize
-Becks Depressions-Inventar (BDI) zur Depressionsdiagnostik
+Becks Depressions-Inventar (BDI-II) zur Depressionsdiagnostik
 
 ![](../VL_Abbildungen/pds_7_bdi.pdf)
 
@@ -292,18 +298,16 @@ Quantile und Boxplots
 \small
 \begin{definition}[Absolute und relative Häufigkeitsverteilungen]
 \justifying
-$x := (x_1,...,x_n)$ mit $x_i \in \mathbb{R}$ sei ein \textit{Datensatz} 
-(manchmal auch ``Urliste'' genannt) und $A := \{a_1,...,a_k\}$ mit $k \le n$ 
-seien die im Datensatz vorkommenden verschiedenen Zahlenwerte (manchmal auch
-``Merkmalsausprägunge'' genannt). Dann heißt die Funktion
+$y := (y_1,...,y_n)$ sei ein Datensatz und $W := \{w_1,...,w_k\}$ mit $k \le n$ 
+seien die im Datensatz vorkommenden Werte. Dann heißt die Funktion
 \begin{equation}
-h : A \to \mathbb{N}, a \mapsto h(a) := \mbox{Anzahl der } x_i \mbox{ aus } x \mbox{ mit } x_i = a
+h : W \to \mathbb{N}, w \mapsto h(w) := \mbox{Anzahl der } y_i \mbox{ aus } y \mbox{ mit } y_i = w
 \end{equation}
-die \textit{absolute Häufigkeitsverteilung} der Zahlenwerte von $x$ und die Funktion
+die \textit{absolute Häufigkeitsverteilung} der Werte von $y$ und die Funktion
 \begin{equation}
-r : A \to [0,1], a \mapsto r(a) := \frac{h(a)}{n}
+r : W \to [0,1], w \mapsto r(w) := \frac{h(w)}{n}
 \end{equation}
-die \textit{relative Häufigkeitsverteilung} der Zahlenwerte von $x$.
+heißt die \textit{relative Häufigkeitsverteilung} der Werte von $y$.
 \end{definition}
 
 \footnotesize
@@ -322,10 +326,10 @@ Die **absoluten Häufigkeiten** einer kategorialen Variable können in R mit der
 \setstretch{1.2}
 \footnotesize
 ```{r, eval = T}
-x        <- D$Pre.BDI                  # double vector der Pre BDI Werte
-n        <- length(x)                  # Anzahl der Datenwerte (hier: 100)
-H        <- as.data.frame(table(x))    # absolute Häufigkeitsverteilung als Dataframe
-names(H) <- c("a", "h")                # Benennen der Spalten im Dataframe
+y        <- D$Pre.BDI                  # double vector der Pre BDI Werte
+n        <- length(y)                  # Anzahl der Datenwerte (hier: 100)
+H        <- as.data.frame(table(y))    # absolute Häufigkeitsverteilung als Dataframe
+names(H) <- c("w", "ah")               # Benennen der Spalten im Dataframe
 ```
 
 
@@ -338,7 +342,7 @@ Die **relativen Häufigkeiten** erhält man, indem man die absoluten Häufigkeit
 \setstretch{1.2}
 \footnotesize
 ```{r, eval = T}
-H$r      <- H$h / n                    # Neue Spalte mit relativen Häufigkeiten
+H$rh     <- H$ah / n                   # Neue Spalte mit relativen Häufigkeiten
 print(H)                               # Ausgabe des Dataframes
 ```
 
@@ -365,13 +369,13 @@ Visualisierung der absoluten Häufigkeitsverteilung mit `barplot()`
 \setstretch{1.1}
 
 ```{r, eval = F}
-h          <- H$h             # Kopie der absoluten Häufigkeiten in einen Vektor
-names(h)   <- H$a             # Den Häufigkeitswerten die entsprechenden Kategorien zuweisen
+h          <- H$ah            # Kopie der absoluten Häufigkeiten in einen Vektor
+names(h)   <- H$w             # Den Häufigkeitswerten die entsprechenden Kategorien zuweisen
 barplot(                      # Balkendiagramm
   h,                          # absolute Haeufigkeiten
   col  = "gray90",            # Balkenfarbe
-  xlab = "a",                 # x Achsenbeschriftung
-  ylab = "h(a)",              # y Achsenbeschriftung
+  xlab = "w",                 # x Achsenbeschriftung
+  ylab = "h(w)",              # y Achsenbeschriftung
   ylim = c(0, 25),            # y Achsengrenzen
   las  = 2,                   # x Tick Orientierung (2: perpendicular to the axis)
   main = "Pre BDI"            # Titel
@@ -408,7 +412,7 @@ Speichern von Abbildungen mit `dev.copy2pdf()`
 skriptordner      <- sys.frame(1)$ofile  # Verzeichnis des aktuellen Skripts ermitteln
 abb_ausgabepfad   <- file.path(          # Absoluter Pfad zur Zieldatei im Skriptverzeichnis
   skriptordner,
-  "pds_7_ha_prebdi.pdf"
+  "pds_7_ah_prebdi.pdf"
 )
 
 # Variante 2: Dateinamen in einem Unterverzeichnis "Abbildungen" erstellen
@@ -418,12 +422,12 @@ abbildungsordner  <- file.path(          # Absoluter Pfad zum Unterverzeichnis "
 )       
 abb_ausgabepfad   <- file.path(          # Absoluter Pfad zur Zieldatei im Abbildungsverzeichnis
   abbildungsordner,
-  "pds_7_ha_prebdi.pdf"
+  "pds_7_ah_prebdi.pdf"
 )
 
 # Speichern der Abbildung als PDF
 dev.copy2pdf(                            # PDF Kopierfunktion
-  file   = abb_ausgabepfad,                # Dateiname
+  file   = abb_ausgabepfad,              # Dateiname
   width  = 7,                            # Breite (inch)
   height = 4                             # Höhe (inch)
 )
@@ -437,26 +441,26 @@ Absolute Häufigkeitsverteilung aller Pre-BDI Werte
 \vspace{4mm}
 
 ```{r, echo = F, eval = F}
-h           <- H$h                  # h(a) Werte
-names(h)    <- H$a                  # barplot braucht a Werte als names
+h           <- H$ah                 # h(w) Werte
+names(h)    <- H$w                  # barplot braucht w Werte als names
 barplot(                            # Balkendiagramm
   h,                                # absolute Haeufigkeiten
   col       = "gray90",             # Balkenfarbe
-  xlab      = "a",                  # x Achsenbeschriftung
-  ylab      = "h(a)",               # y Achsenbeschriftung
+  xlab      = "w",                  # x Achsenbeschriftung
+  ylab      = "h(w)",               # y Achsenbeschriftung
   ylim      = c(0, 25),             # y Achsengrenzen
   las       = 2,                    # Orientierung der x ticks senkrecht (90°)
   main  		= "Pre BDI"             # Titel
 )
 dev.copy2pdf(                                                     # PDF Kopiefunktion
-  file      = file.path(abbildungsordner, "pds_7_ha_prebdi.pdf"), # Dateiname
+  file      = file.path(abbildungsordner, "pds_7_ah_prebdi.pdf"), # Dateiname
   width     = 7,                                                  # Breite (inch)
   height    = 4
 )
 ```
 
 
-![](../VL_Abbildungen/pds_7_ha_prebdi.pdf){width="90%"}
+![](../VL_Abbildungen/pds_7_ah_prebdi.pdf){width="90%"}
 
 
 
@@ -466,24 +470,24 @@ Relative Häufigkeitsverteilung aller Pre-BDI Werte
 
 ```{r, echo = F, eval = F}
 r          <- H$r          # h(r) Werte
-names(r)   <- H$a          # barplot braucht a Werte als names
+names(r)   <- H$w          # barplot braucht w Werte als names
 barplot(                   # Balkendiagramm
   r,                       # relative Haeufigkeiten
   col  = "gray90",         # Balkenfarbe
-  xlab = "a",              # x Achsenbeschriftung
-  ylab = "r(a)",           # y Achsenbeschriftung
+  xlab = "w",              # x Achsenbeschriftung
+  ylab = "r(w)",           # y Achsenbeschriftung
   ylim = c(0, 0.25),       # y Achsengrenzen
   las  = 2,                # Anzeigen aller x Werte
   main = "Pre BDI"         # Titel
 )
 dev.copy2pdf(              # PDF Kopiefunktion
-  file   = file.path(abbildungsordner, "pds_7_ra_prebdi.pdf"),  # Dateiname
+  file   = file.path(abbildungsordner, "pds_7_rh_prebdi.pdf"),  # Dateiname
   width  = 7,                                                   # Breite (inch)
   height = 4
 )
 ```
 
-![](../VL_Abbildungen/pds_7_ra_prebdi.pdf){width="90%"}
+![](../VL_Abbildungen/pds_7_rh_prebdi.pdf){width="90%"}
 
 
 # Grafikfenster und Plot Viewer in VS Code
@@ -530,21 +534,21 @@ Quantile und Boxplots
 
 \begin{definition}[Histogramm]
 \justifying
-Ein \textit{Histogramm} ist ein Diagramm, in dem zu einem Datensatz $x = (x_1,...,x_n)$ 
-mit verschiedenen Zahlenwerten $A := \{a_1,...,a_m\}, m \le n$ über benachbarten Intervallen 
-$[b_{j-1},b_j[$, welche  \textit{Klassen} oder \textit{Bins} genannt werden, 
-für $j = 1,...,k$ Rechtecke mit
-
+Ein \textit{Histogramm} ist ein Diagramm, in dem zu einem Datensatz $y = (y_1,...,y_n)$ mit 
+Werten $W := \{w_1,...,w_m\}$ mit $m \le n$ für $j = 1,...,k$ über 
+benachbarten Intervallen 
+$[b_{j-1},b_j[$ mit $b_0 := \min W$ und $b_k := \max W$ 
+Rechtecke mit der 
 \vspace{1mm}
 \begin{center}
 \begin{tabular}{ll}
-Breite &  $d_j = b_j - b_{j-1}$\\
-Höhe   &  $h(a)$ oder $r(a)$ mit $a \in [b_{j-1}, b_{j}[$
+\textit{Breite} $d_j := b_j - b_{j-1}$ und der  \\
+\textit{Höhe} $h(w)$ oder $r(w)$ für $w \in [b_{j-1}, b_{j}[$ 
 \end{tabular}
 \end{center}
 \vspace{1mm}
-
-abgebildet sind, wobei $b_0 := \min A$ und $b_k := \max A$ angenommen werden soll.
+abgebildet sind.
+Dabei werden die Intervalle $[b_{j-1},b_j[$ \textit{Klassen} (engl. \textit{bins}) genannt.
 \end{definition}
 
 Bemerkungen
@@ -561,7 +565,7 @@ Bemerkungen
 $k := \lceil \frac{b_k - b_0}{h} \rceil$ & Bestimmung der Anzahl der Klassen aus gewünschter Klassenbreite $h$ \\
 $k := \lceil \sqrt{n} \rceil$ & Klassenanzahl in Excel \\
 $k := \lceil \log_2 n + 1 \rceil$ & Implizite Normalverteilungsannahme (Sturges, 1926) \\
-$h := 3.49 \cdot \frac{S_n}{\sqrt[3]{n}}$ & Berechnung $h$ nach Scott (1979): Min. MSE Dichteschätzung bei Normalverteilung
+$h := 3.49 \cdot \frac{S}{\sqrt[3]{n}}$ & Berechnung $h$ nach Scott (1979): Min. MSE Dichteschätzung bei Normalverteilung
 \end{tabular}
 \end{center}
 
@@ -578,14 +582,14 @@ Berechnung und Visualisierung von Histogrammen mit `hist()`
 \footnotesize
 ```{r, eval = F}
 # Default Histogramm
-x     <- D$Pre.BDI            # Datensatz
+y     <- D$Pre.BDI            # Datensatz
 x_min <- 12                   # x Achsengrenze (links)
 x_max <- 25                   # x Achsengrenze (rechts)
 y_min <- 0                    # y Achsengrenze (unten)
 y_max <- 45                   # y Achsengrenze (oben)
 
 hist(                         # Histogramm
-  x,                          # Datensatz
+  y,                          # Datensatz
   xlim = c(x_min, x_max),     # x Achsengrenzen
   ylim = c(y_min, y_max),     # y Achsengrenzen
   ylab = "Häufigkeit",        # y-Achsenbezeichnung
@@ -597,14 +601,14 @@ hist(                         # Histogramm
 ```{r, echo = F, eval = F}
 
 # Default Histogramm
-x       <- D$Pre.BDI                                                             # Datensatz
+y       <- D$Pre.BDI                                                             # Datensatz
 x_min   <- 12                                                                    # x-Achsenlimit
 x_max   <- 25                                                                    # x-Achsenlimit
 y_min   <- 0                                                                     # y-Achsenlimit
 y_max   <- 45                                                                    # y-Achsenlimit
 
 hist(                                                                            # Histogramm
-x,                                                                               # Datensatz
+y,                                                                               # Datensatz
 xlim    = c(x_min, x_max),                                                      # x Achsen Limits
 ylim    = c(y_min, y_max),                                                      # y Achsen Limits
 ylab    = "Häufigkeit",                                                         # y-Achsenbezeichnung
@@ -614,12 +618,12 @@ dev.copy2pdf(file = file.path(abbildungsordner, "pds_7_hg_0.pdf"), width = 8, he
 
 # Histogramm mit gewünschter Klassenbreite h = 1
 h       <- 1                                                                      # gewünschte Klassenbreite
-b_0     <- min(x)                                                                 # b_0
-b_k     <- max(x)                                                                 # b_k
+b_0     <- min(y)                                                                 # b_0
+b_k     <- max(y)                                                                 # b_k
 k       <- ceiling((b_k - b_0) / h)                                               # Anzahl der Klassen
 b       <- seq(b_0, b_k, by = h)                                                  # Klassen [b_{j-1}, b_j[
 hist(                                                                             # Histogramm
-x,                                                                                # Datensatz
+y,                                                                                # Datensatz
 breaks  = b,                                                                     # breaks
 xlim    = c(x_min, x_max),                                                       # x Achsen Limits
 ylim    = c(y_min, y_max),                                                       # y Achsen Limits
@@ -630,12 +634,12 @@ dev.copy2pdf(file  = file.path(abbildungsordner, "pds_7_hg_1.pdf"), width = 8, h
 
 # Histogramm mit gewünschter Klassenbreite h =1.5
 h       <- 1.5                                                                    # gewünschte Klassenbreite
-b_0     <- min(x)                                                                 # b_0
-b_k     <- max(x)                                                                 # b_k
+b_0     <- min(y)                                                                 # b_0
+b_k     <- max(y)                                                                 # b_k
 k       <- ceiling((b_k - b_0)/h)                                                 # Anzahl der Klassen
 b       <- seq(b_0, b_k, len = k + 1)                                                  # Klassen [b_{j-1}, b_j[
 hist(                                                                             # Histogramm
-x,                                                                                # Datensatz
+y,                                                                                # Datensatz
 breaks  = b,                                                                     # breaks
 xlim    = c(x_min, x_max),                                                       # x Achsen Limits
 ylim    = c(y_min, y_max),                                                       # y Achsen Limits
@@ -645,12 +649,12 @@ main    = sprintf("Pre-BDI, k = %.0f, h = %.2f", k, h))                         
 dev.copy2pdf(file  = file.path(abbildungsordner, "pds_7_hg_2.pdf"), width = 8, height = 5) # PDF Speicherung
 
 # Histogramm mit Excel Standard
-n       <- length(x)                                                              # Anzahl Datenwerte
+n       <- length(y)                                                              # Anzahl Datenwerte
 k       <- ceiling(sqrt(n))                                                       # Anzahl der Klassen
 b       <- seq(b_0, b_k, len = k + 1)                                                 # Klassen [b_{j-1}, b_j[
 h       <- b[2] - b[1]                                                            # Klassenbreite
 hist(
-x,                                                                                # Datensatz
+y,                                                                                # Datensatz
 breaks  = b,                                                                     # breaks
 xlim    = c(x_min, x_max),                                                       # x Achsen Limits
 ylim    = c(y_min, y_max),                                                       # y Achsen Limits
@@ -660,12 +664,12 @@ main    = sprintf("Pre-BDI, k = %.0f, h = %.2f", k, h))                         
 dev.copy2pdf(file  = file.path(abbildungsordner, "pds_7_hg_3.pdf"), width = 8, height = 5) # PDF Speicherung
 
 # Sturges
-n       <- length(x)                                                              # Anzahl Datenwerte
+n       <- length(y)                                                              # Anzahl Datenwerte
 k       <- ceiling(log2(n)+1)                                                     # Anzahl der Klassen
 b       <- seq(b_0, b_k, len = k + 1)                                                 # Klassen [b_{j-1}, b_j[
 h       <- b[2] - b[1]                                                            # Klassenbreite
 hist(                                                                             # Histogramm
-x,                                                                                # Datensatz
+y,                                                                                # Datensatz
 breaks  = b,                                                                     # breaks
 xlim    = c(x_min, x_max),                                                       # x Achsen Limits
 ylim    = c(y_min, y_max),                                                       # y Achsen Limits
@@ -675,14 +679,14 @@ main    = sprintf("Pre-BDI, k = %.0f, h = %.2f", k, h))                         
 dev.copy2pdf(file  = file.path(abbildungsordner, "pds_7_hg_4.pdf"), width = 8, height = 5) # PDF Speicherung
 
 # Scott
-n       <- length(x)                                                              # Anzahl Datenwerte
-S       <- sd(x)                                                                  # Stichprobenstandardabweichung
+n       <- length(y)                                                              # Anzahl Datenwerte
+S       <- sd(y)                                                                  # Stichprobenstandardabweichung
 h       <- ceiling(3.49*S/(n^(1/3)))                                              # Klassenbreite
 k       <- ceiling((b_k - b_0)/h)                                                 # Anzahl der Klassen
 b       <- seq(b_0, b_k, len = k + 1)                                                 # Klassen [b_{j-1}, b_j[
 h       <- b[2] - b[1]                                                            # Klassenbreite
 hist(                                                                             # Histogramm
-x,                                                                                # Datensatz
+y,                                                                                # Datensatz
 breaks  = b,                                                                     # breaks
 xlim    = c(x_min, x_max),                                                       # x Achsen Limits
 ylim    = c(y_min, y_max),                                                       # y Achsen Limits
@@ -711,7 +715,7 @@ dev.copy2pdf(file  = file.path(abbildungsordner, "pds_7_hg_5.pdf"), width = 8, h
 ```{r, eval = T, echo = T}
 # Histogrammdaten berechnen, ohne Plot auszugeben
 histogram_data <- hist(        # Speichert die Ergebnisse von hist()
-  x,                           # Datensatz
+  y,                           # Datensatz
   plot = FALSE                 # Verhindert die direkte Darstellung des Plots
 )
 
@@ -728,26 +732,26 @@ Berechnung von Klassenanzahlen und `breaks` Argument
 ```{r, eval = F}
 # Histogramm mit gewuenschter Klassenbreite
 h 	<- 1                            # gewuenschte Klassenbreite
-b_0 <- min(x)                       # b_0
-b_k <- max(x)                       # b_k
+b_0 <- min(y)                       # b_0
+b_k <- max(y)                       # b_k
 k   <- ceiling((b_k - b_0) / h)     # Anzahl der Klassen
 b   <- seq(b_0, b_k, len = k + 1)   # Klassen [b_{j-1}, b_j[
 
 # Excelstandard
-n   <- length(x)                    # Anzahl Datenwerte
+n   <- length(y)                    # Anzahl Datenwerte
 k   <- ceiling(sqrt(n))             # Anzahl der Klassen
 b   <- seq(b_0, b_k, len = k + 1)   # Klassen [b_{j-1}, b_j[
 h   <- b[2] - b[1]                  # Klassenbreite
 
 # Sturges
-n   <- length(x)                    # Anzahl Datenwerte
+n   <- length(y)                    # Anzahl Datenwerte
 k   <- ceiling(log2(n)+1)           # Anzahl der Klassen
 b   <- seq(b_0, b_k, len = k + 1)   # Klassen [b_{j-1}, b_j[
 h   <- b[2] - b[1]                  # Klassenbreite
 
 # Scott
-n   <- length(x)                    # Anzahl Datenwerte
-S   <- sd(x)                        # Stichprobenstandardabweichung
+n   <- length(y)                    # Anzahl Datenwerte
+S   <- sd(y)                        # Stichprobenstandardabweichung
 h   <- ceiling(3.49*S/(n^(1/3)))    # Klassenbreite
 k   <- ceiling((b_k - b_0)/h)       # Anzahl der Klassen
 b   <- seq(b_0, b_k, len = k + 1)   # Klassen [b_{j-1}, b_j[
@@ -765,13 +769,13 @@ Berechnung und Visualisierung von Histogrammen mit `hist()`
 \footnotesize
 ```{r, eval = F}
 # Default Histogramm
-x      <- D$Pre.BDI                                      # Datensatz
+y      <- D$Pre.BDI                                      # Datensatz
 x_min  <- 12                                             # x Achsengrenze (unten)
 x_max  <- 25                                             # x Achsengrenze (oben)
 y_min  <- 0                                              # y Achsengrenze (oben)
 y_max  <- 30                                             # y Achsengrenze (unten)
 hist(                                                    # Histogramm
-  x,                                                     # Datensatz
+  y,                                                     # Datensatz
   breaks = b,                                            # breaks
   xlim   = c(x_min, x_max),                              # x Achsengrenzen
   ylim   = c(y_min, y_max),                              # y Achsengrenzen
@@ -811,7 +815,7 @@ nach @sturges_1926 $, k := \lceil \log_2 n + 1\rceil$
 
 
 # Histogramme - \textcolor{darkcyan}{Beispiel}
-nach @scott_1979 $, h := 3.49S_n/\sqrt[3]{n}$
+nach @scott_1979 $, h := 3.49S/\sqrt[3]{n}$
 \vspace{1mm}
 
 ![](../VL_Abbildungen/pds_7_hg_5.pdf){width="100%"}
@@ -846,29 +850,29 @@ Quantile und Boxplots
 \footnotesize
 \begin{definition}[Kumulative absolute und relative Häufigkeitsverteilungen]
 \justifying
-$x = (x_1,...,x_n)$ sei ein Datensatz, $A := \{a_1,...,a_k\}$ mit $k \le n$  
-die im Datensatz vorkommenden verschiedenen Zahlenwerte und $h$ und $r$ die 
-absoluten und relativen Häufigkeitsverteilungen von $x$, respektive. Dann heißt
-die Funktion
+$y = (y_1,...,y_n)$ sei ein Datensatz, $W := \{w_1,...,w_k\}$ mit $k \le n$ die 
+im Datensatz vorkommenden Zahlenwerte und $h$ und $r$ die absoluten und 
+relativen Häufigkeitsverteilungen der Werte von $y$, respektive. 
+Dann heißt die Funktion
 \begin{equation}
-H : A \to \mathbb{N}, a \mapsto H(a) := \sum_{a' \le a} h(a')
+H : W \to \mathbb{N}, w \mapsto H(w) := \sum_{w' \le w} h(w')
 \end{equation}
-die \textit{kumulative absolute Häufigkeitsverteilung} von $x$ und die Funktion
+die \textit{kumulative absolute Häufigkeitsverteilung} von $y$ und die Funktion
 \begin{equation}
-R : A \to [0,1], a \mapsto R(a) : =\sum_{a' \le a} r(a')
+R : W \to [0,1], w \mapsto R(w) : =\sum_{w' \le w} r(w')
 \end{equation}
-die \textit{kumulative relative Häufigkeitsverteilung} der Zahlwerte von $x$.
+die \textit{kumulative relative Häufigkeitsverteilung} der Zahlwerte von $y$.
 \end{definition}
 
 Bemerkung
 
 * Mit den Definitionen der absoluten und relativen Häufigkeitsverteilungen gilt also
 \begin{equation}
-H(a) = \mbox{Anzahl der } x_i \mbox{ aus } x \mbox{ mit } x_i \le a
+H(w) = \mbox{Anzahl der } y_i \mbox{ aus } y \mbox{ mit } y_i \le w
 \end{equation}
 und
 \begin{equation}
-R(a) = \mbox{Anzahl der } x_i \mbox{ aus } x \mbox{ mit } x_i \le a \mbox{ geteilt durch } n.
+R(w) = \mbox{Anzahl der } y_i \mbox{ aus } y \mbox{ mit } y_i \le w \mbox{ geteilt durch } n.
 \end{equation}
 
 
@@ -890,10 +894,10 @@ psy_dateipfad <- file.path(datenordner, "psychotherapie_datensatz.csv")
 D             <- read.csv(psy_dateipfad)
 
 # Evaluation der absoluten und relativen Häufigkeitsverteilugen von Pre.BDI
-x             <- D$Pre.BDI                 # Kopie der Pre.BDI Werte in einen double Vektor
-n             <- length(x)                 # Anzahl der Datenwerte
-H             <- as.data.frame(table(x))   # absolute Häufigkeitsverteilung als Dataframe
-names(H)      <- c("a", "h")               # Benennen der Spalten im Dataframe
+y             <- D$Pre.BDI                 # Kopie der Pre.BDI Werte in einen double Vektor
+n             <- length(y)                 # Anzahl der Datenwerte
+H             <- as.data.frame(table(y))   # absolute Häufigkeitsverteilung als Dataframe
+names(H)      <- c("w", "h")               # Benennen der Spalten im Dataframe
 H$r           <- H$h / n                   # Neue Spalte mit relativen Häufigkeiten
 
 # Evaluation der kumulativen absoluten und relativen Häufigkeitsverteilungen
@@ -914,15 +918,15 @@ print(H)                                   # Ausgabe des Dataframes
 ```{r}
 #| label: cum H$h
 # Vorbereitung der zu visualisierenden Daten
-Ha        <- H$H               # Kopie der kumulativen absoluten Häufigkeiten in einen Vektor
-names(Ha) <- H$a               # Den Häufigkeitswerten die entsprechenden Kategorien zuweisen
+Hw        <- H$H               # Kopie der kumulativen absoluten Häufigkeiten in einen Vektor
+names(Hw) <- H$w               # Den Häufigkeitswerten die entsprechenden Kategorien zuweisen
 
 # Visualisierung der kumulativen absoluten Häufigkeitsverteilung
 barplot(                       # Balkendiagramm
-  Ha,                          # H(a) Werte (kumulativen absoluten Häufigkeiten) als input
+  Hw,                          # H(w) Werte (kumulativen absoluten Häufigkeiten) als input
   col  = "gray90",             # Balkenfarbe
-  xlab = "a",                  # x Achsenbeschriftung
-  ylab = "H(a)",               # y Achsenbeschriftung
+  xlab = "w",                  # x Achsenbeschriftung
+  ylab = "H(w)",               # y Achsenbeschriftung
   ylim = c(0, 110),            # y Achsenlimits
   las  = 1,                    # Achsenticklabelorientierung (1: horizontal)
   main = "Pre.BDI"             # Titel
@@ -956,15 +960,15 @@ dev.copy2pdf(
 ```{r}
 #| label: cum rel Häufigkeit
 # Vorbereitung der zu visualisierenden Daten
-R        <- H$R             # R(a) Werte
-names(R) <- H$a             # barplot braucht a Werte als names
+R        <- H$R             # R(w) Werte
+names(R) <- H$w             # barplot braucht w Werte als names
 
 # Visualisierung der kumulativen relativen Häufigkeitsverteilung
 barplot(                    # Balkendiagramm
-  R,                        # R(a) Werte
+  R,                        # R(w) Werte
   col  = "gray90",          # Balkenfarbe
-  xlab = "a",               # x Achsenbeschriftung
-  ylab = "R(a)",            # y Achsenbeschriftung
+  xlab = "w",               # x Achsenbeschriftung
+  ylab = "R(w)",            # y Achsenbeschriftung
   ylim = c(0, 1),           # y Achsenlimits
   las  = 1,                 # Achsenticklabelorientierung 
   main = "Pre.BDI"          # Titel
@@ -992,17 +996,17 @@ dev.copy2pdf(
 
 \footnotesize
 \begin{definition}[Empirische Verteilungsfunktion]
-$x = (x_1,...,x_n)$ sei ein Datensatz. Dann heißt die Funktion
+$y = (y_1,...,y_n)$ sei ein Datensatz. Dann heißt die Funktion
 \begin{equation}
-F : \mathbb{R} \to [0,1], \xi \mapsto F(\xi)
-:= \frac{\mbox{Anzahl der } x_i \mbox{ aus } x \mbox{ mit } x_i \le \xi}{n}
+F : \mathbb{R} \to [0,1], x \mapsto F(x)
+:= \frac{\mbox{Anzahl der } y_i \mbox{ aus } y \mbox{ mit } y_i \le x}{n}
 \end{equation}
-die empirische Verteilungsfunktion (EVF) von $x$.
+die empirische Verteilungsfunktion (EVF) von $y$.
 \end{definition}
 Bemerkungen
 
 * Die empirische Verteilungsfunktion wird auch *empirische kumulative Verteilungsfunktion* genannt.
-* Die Definitionsmenge der EVF ist im Gegensatz zu Häufigkeitsverteilungen $\mathbb{R}$ und nicht $A$
+* Die Definitionsmenge der EVF ist im Gegensatz zu Häufigkeitsverteilungen $\mathbb{R}$ und nicht $W$
 * Die EVF verhält sich zu kumulativen Häufigkeitsverteilungen wie Histogramme zu Häufigkeitsverteilungen.
 * Typischerweise sind empirische Verteilungsfunktionen Treppenfunktionen.
 * Die (visuelle) Umkehrfunktion der EVF kann zur Bestimmung von Quantilen genutzt werden.
@@ -1029,8 +1033,8 @@ Mit der Funktion `plot()` lässt sich die EVF, die von `ecdf()` erzeugt wurde, d
 #| label: ecdf()
 
 # Evaluation der EVF
-x    <- D$Pre.BDI                                 # double vector der Pre.BDI Werte
-evf  <- ecdf(x)                                   # Evaluation der EVF
+y    <- D$Pre.BDI                                 # double vector der Pre.BDI Werte
+evf  <- ecdf(y)                                   # Evaluation der EVF
 
 # Evaluation der Funktionswerte der EVF
 p_bis_17 <- evf(17)                               # Anteil der Werte <= 17
@@ -1057,13 +1061,12 @@ Mit der Funktion `plot()` lässt sich die EVF, die von `ecdf()` erzeugt wurde, d
 \setstretch{1.1}
 ```{r}
 #| label: ecdf() visualisierung
-library(latex2exp)                                # LaTeX Formatierungstool, TeX()
 
 # Visualisierung der kumulativen relativen Häufigkeitsverteilung
 plot(
   evf,                                            # ecdf Objekt
-  xlab = TeX("$\\xi$"),                           # x Achsenbeschriftung
-  ylab = TeX("$F(\\xi)$"),                        # y Achsenbeschriftung
+  xlab = "x",                                     # x Achsenbeschriftung
+  ylab = "F(x)",                                  # y Achsenbeschriftung
   main = "Pre.BDI Empirische Verteilungsfunktion" # Titel
 )
 
@@ -1116,31 +1119,31 @@ Empirische Verteilungsfunktionen
 \footnotesize
 \begin{definition}[$p$-Quantil]
 \justifying
-$x = (x_1,...,x_n)$ sei ein Datensatz und
+$y = (y_1,...,y_n)$ sei ein Datensatz und
 \begin{equation}
-x_s = \left(x_{(1)}, x_{(2)}, ...,x_{(n)}\right) \mbox{ mit }
-\min_{1 \le i \le n}x_i = x_{(1)} \le x_{(2)} \le \cdots \le x_{(n)} = \max_{1 \le i \le n} x_i
+y_s = \left(y_{(1)}, y_{(2)}, ...,y_{(n)}\right) \mbox{ mit }
+\min_{1 \le i \le n} y_i = y_{(1)} \le y_{(2)} \le \cdots \le y_{(n)} = \max_{1 \le i \le n} y_i
 \end{equation}
-der zugehörige aufsteigend sortierte Datensatz. Weiterhin bezeichne $\lfloor \cdot \rfloor$ 
+sei der zugehörige aufsteigend sortierte Datensatz. Weiterhin bezeichne $\lfloor \cdot \rfloor$ 
 die Abrundungsfunktion. Dann heißt für ein $p \in [0,1]$ die Zahl
 \begin{equation}
-x_p :=
+y_p :=
 \begin{cases}
-x_{(\lfloor np + 1 \rfloor)} & \mbox{ falls } np \neq \mathbb{N} \\
-\frac{1}{2}\left(x_{(np)} +  x_{(np + 1)}\right) & \mbox{ falls } np \in \mathbb{N} \\
+y_{(\lfloor np + 1 \rfloor)} & \mbox{ falls } np \neq \mathbb{N} \\
+\frac{1}{2}\left(y_{(np)} +  y_{(np + 1)}\right) & \mbox{ falls } np \in \mathbb{N} \\
 \end{cases}
 \end{equation}
-das \textit{$p$-Quantil} von $x$.
+das \textit{$p$-Quantil} des Datensatzes $y$.
 \end{definition}
 
 Bemerkungen
 
-* Mindestens $p \cdot 100\%$ aller Werte in $x$ sind kleiner oder gleich $x_p$.
-* Mindestens $(1-p) \cdot 100\%$ aller Werte in $x$ sind größer als $x_p$ .
+* Mindestens $p \cdot 100\%$ aller Werte in $y$ sind kleiner oder gleich $y_p$.
+* Mindestens $(1-p) \cdot 100\%$ aller Werte in $y$ sind größer als $y_p$ .
 * Das $p$-Quantil teilt den geordneten Datensatz im Verhältnis $p$ zu $(1-p)$ auf.
-* $x_{0.25}, x_{0.50}, x_{0.75}$ heißen *unteres Quartil*, *Median*, und *oberes Quartil*, respektive.
-* $x_{j\cdot 0.10}$ für $j = 1,...,9$ heißen *Dezile*,
-* $x_{j\cdot 0.01}$ für $j = 1,...,99$ heißen *Percentile*.
+* $y_{0.25}, y_{0.50}, y_{0.75}$ heißen *unteres Quartil*, *Median*, und *oberes Quartil*, respektive.
+* $y_{j\cdot 0.10}$ für $j = 1,...,9$ heißen *Dezile*,
+* $y_{j\cdot 0.01}$ für $j = 1,...,99$ heißen *Percentile*.
 
 
 # \textcolor{darkcyan}{Beispiel $p$-Quantil}
@@ -1166,7 +1169,7 @@ $i$
 & 9
 & 10
 \\\hline
-$x_i$
+$y_i$
 & 8.5
 & 1.5
 & 75
@@ -1178,7 +1181,7 @@ $x_i$
 & 6.0
 & 9.0
 \\
-$x_{(i)}$
+$y_{(i)}$
 & 1.5
 & 2.5
 & 3.0
@@ -1200,7 +1203,7 @@ $x_{(i)}$
 \footnotesize
 Es ist $n = 10$ und es sei $p := 0.25$. Dann gilt $np = 10 \cdot 0.25 = 2.5 \notin \mathbb{N}$. Also folgt
 \begin{equation}
-x_{0.25} = x_{(\lfloor 2.5 + 1\rfloor)} = x_{(3)} = 3.0
+y_{0.25} = y_{(\lfloor 2.5 + 1\rfloor)} = y_{(3)} = 3.0
 \end{equation}
 \vspace{1mm}
 
@@ -1210,7 +1213,7 @@ x_{0.25} = x_{(\lfloor 2.5 + 1\rfloor)} = x_{(3)} = 3.0
 
 Es ist $n = 10$ und es sei $p := 0.80$. Dann gilt $np = 10 \cdot 0.80 = 8 \in \mathbb{N}$. Also folgt
 \begin{equation}
-x_{0.80} = \frac{1}{2} \left( x_{(8)} + x_{(8 + 1)}\right) = \frac{1}{2}\left(x_{(8)} + x_{(9)}\right)
+y_{0.80} = \frac{1}{2} \left( y_{(8)} + y_{(8 + 1)}\right) = \frac{1}{2}\left(y_{(8)} + y_{(9)}\right)
 = \frac{8.5 + 9.0}{2} = 8.75.
 \end{equation}
 
@@ -1229,17 +1232,17 @@ x_{0.80} = \frac{1}{2} \left( x_{(8)} + x_{(8 + 1)}\right) = \frac{1}{2}\left(x_
 \setstretch{1}
 ```{r, eval = T}
 #| label: manuelle Quantilsbestimmung
-x    <- c(8.5, 1.5, 12, 4.5, 6.0, 3.0, 3.0, 2.5, 6.0, 9.0)  # Beispieldaten (Henze, 2018)
-n    <- length(x)                                           # Anzahl Datenwerte
-x_s  <- sort(x)                                             # sortierter Datensatz
+y    <- c(8.5, 1.5, 12, 4.5, 6.0, 3.0, 3.0, 2.5, 6.0, 9.0)  # Beispieldaten (Henze, 2018)
+n    <- length(y)                                           # Anzahl Datenwerte
+y_s  <- sort(y)                                             # sortierter Datensatz
 p    <- 0.25                                                # Quantilsparameter
 print(n * p)                                                # np ist hier keine natürliche Zahl
-x_p  <- x_s[floor(n * p + 1)]                               # 0.25 Quantil
-print(x_p)                                                  # Ausgabe
+y_p  <- y_s[floor(n * p + 1)]                               # 0.25 Quantil
+cat("0.25 Quantil: ", round(y_p,2))                         # Ausgabe
 p    <- 0.80                                                # Quantilsparameter
 print(n * p)                                                # np hier eine natürliche Zahl
-x_p  <- (1 / 2) * (x_s[n * p] + x_s[n * p + 1])             # 0.80 Quantil
-print(x_p)                                                  # Ausgabe
+y_p  <- (1 / 2) * (y_s[n * p] + y_s[n * p + 1])             # 0.80 Quantil
+cat("0.80 Quantil: ", round(y_p,2))                         # Ausgabe
 ```
 
 \vfill
@@ -1257,10 +1260,10 @@ Es gibt mindestens neun verschiedene Quantildefinitionen (cf. @hyndman_1996)
 \tiny
 ```{r, eval = T}
 #| label: alternat. Quantils types
-x_p <- quantile(x, 0.80, type = 1)                          # 0.80 Quantil, Definition 1
-print(x_p)
-x_p <- quantile(x, 0.80, type = 2)                          # 0.80 Quantil, Definition 2
-print(x_p)
+y_p <- quantile(y, 0.80, type = 1)                          # 0.80 Quantil, Definition 1
+print(y_p)
+y_p <- quantile(y, 0.80, type = 2)                          # 0.80 Quantil, Definition 2
+print(y_p)
 ```
 
 \vfill
@@ -1280,8 +1283,8 @@ Kombination von `ecdf()`und `abline()` erlaubt prinzipiell die visuelle Bestimmu
 library(latex2exp)                                          # LaTeX Formatierungstool, TeX()
 
 # Daten vorbereiten
-x    <- c(8.5, 1.5, 12, 4.5, 6.0, 3.0, 3.0, 2.5, 6.0, 9.0)  # Beispieldaten (Henze, 2018)
-evf <- ecdf(x)                                              # Evaluation der EVF
+y    <- c(8.5, 1.5, 12, 4.5, 6.0, 3.0, 3.0, 2.5, 6.0, 9.0)  # Beispieldaten (Henze, 2018)
+evf <- ecdf(y)                                              # Evaluation der EVF
 
 # Visualisierung der empirischen Verteilungsfunktion
 plot(                                                       # plot() weiß mit ecdf object umzugehen
@@ -1324,10 +1327,10 @@ dev.copy2pdf(
 \setstretch{1}
 ```{r, eval = T}
 #| label: quantile henze
-x_p_1 <- quantile(x, 0.80, type = 1)  # 0.80 Quantil, Definition 1
-x_p_2 <- quantile(x, 0.80, type = 2)  # 0.80 Quantil, Definition 2
-cat("0.80 Quantil mit type=1 bestimmt: ",x_p_1,
-    "\n0.80 Quantil mit type=2 bestimmt: ", x_p_2)
+y_p_1 <- quantile(y, 0.80, type = 1)  # 0.80 Quantil, Definition 1
+y_p_2 <- quantile(y, 0.80, type = 2)  # 0.80 Quantil, Definition 2
+cat("0.80 Quantil mit type=1 bestimmt: ",y_p_1,
+    "\n0.80 Quantil mit type=2 bestimmt: ", y_p_2)
 ```
 
 
@@ -1344,8 +1347,8 @@ cat("0.80 Quantil mit type=1 bestimmt: ",x_p_1,
 library(latex2exp)                         # LaTeX Formatierungstool, TeX()
 
 # Daten vorbereiten
-x   <- D$Pre.BDI                           # Double vector der Pre.BDI Werte
-evf <- ecdf(x)                             # Evaluation der EVF
+y   <- D$Pre.BDI                           # Double vector der Pre.BDI Werte
+evf <- ecdf(y)                             # Evaluation der EVF
 
 # Visualisierung der empirischen Verteilungsfunktion
 plot(                                      # plot() kann mit ecdf object umgehen
@@ -1384,10 +1387,10 @@ dev.copy2pdf(
 \setstretch{1}
 ```{r, eval = T}
 #| label: quantile pre.bdi
-x_p_1 <- quantile(D$Pre.BDI, 0.80, type = 1)  # 0.80 Quantil, Definition 1
-x_p_2 <- quantile(D$Pre.BDI, 0.80, type = 2)  # 0.80 Quantil, Definition 2
-cat("0.80 Quantil mit type=1 bestimmt: ",x_p_1,
-    "\n0.80 Quantil mit type=2 bestimmt: ", x_p_2)
+y_p_1 <- quantile(D$Pre.BDI, 0.80, type = 1)  # 0.80 Quantil, Definition 1
+y_p_2 <- quantile(D$Pre.BDI, 0.80, type = 2)  # 0.80 Quantil, Definition 2
+cat("0.80 Quantil mit type=1 bestimmt: ",y_p_1,
+    "\n0.80 Quantil mit type=2 bestimmt: ", y_p_2)
 ```
 
 
@@ -1396,13 +1399,13 @@ cat("0.80 Quantil mit type=1 bestimmt: ",x_p_1,
 \small
 Ein Boxplot visualisiert eine Quantil-basierte Zusammenfassung eines Datensatzes.
 
-Typischerweise werden $\min x, x_{0.25}, x_{0.50}, x_{0.75} und \max x$ visualisiert.
+Typischerweise werden $\min y, y_{0.25}, y_{0.50}, y_{0.75} und \max y$ visualisiert.
 
-* $\min x$ und $\max x$ werden oft als "Whiskerendpunkte" dargestellt.
-* $x_{0.25}$ und $x_{0.75}$ sind untere und obere Grenze der zentralen grauen Box.
-* $x_{0.50}$ wird als Strich in der zentralen grauen Box abgebildet.
+* $\min y$ und $\max y$ werden oft als "Whiskerendpunkte" dargestellt.
+* $y_{0.25}$ und $y_{0.75}$ sind untere und obere Grenze der zentralen grauen Box.
+* $y_{0.50}$ wird als Strich in der zentralen grauen Box abgebildet.
 
-$d_Q := x_{0.75} - x_{0.25}$ heißt \textit{Interquartilsabstand} und dient als Verteilungsbreitenmaß
+$d_Q := y_{0.75} - y_{0.25}$ heißt \textit{Interquartilsabstand} und dient als Verteilungsbreitenmaß
 
 `summary()` liefert wesentliche Kennzahlen
 
@@ -1432,8 +1435,8 @@ summary(D$Pre.BDI)
 boxplot(                            # Boxplot
   D$Pre.BDI,                        # Datensatz
   horizontal  = TRUE,               # horizontale Darstellung
-  range       = 0,                  # Whiskers bis zu den min(x) und max(x)-Werten
-  xlab        = "x",                # x Achsenbeschriftung
+  range       = 0,                  # Whiskers bis zu den min(y) und max(y)-Werten
+  xlab        = "y",                # x Achsenbeschriftung
   main        = "Pre.BDI Boxplot"   # Titel
 )
 
