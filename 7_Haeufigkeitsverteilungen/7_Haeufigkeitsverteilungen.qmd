@@ -270,6 +270,69 @@ Mit dem Befehl `View()` oder im R \fbox{WORKSPACE} $\rightarrow$ \fbox{Global En
 \textcolor{linkblue}{\href{https://github.com/REditorSupport/vscode-R/wiki/Interactive-viewers}{VS Code Wiki - Interactive viewers}}
 \end{flushright}
 
+# Datenvorverarbeitung
+
+\textcolor{darkblue}{Überlegungen für die Datenvorverarbeitung}
+
+\small
+* Studienfokus ist die **Veränderung** der Depressionsymptomatik durch Therapieformen.
+
+* Für jede Proband:in ergibt sich diese Veränderung als **Differenz** zwischen Post.BDI und Pre.BDI.
+
+* Eine Reduktion der Depressionssymptomatik ergibt dabei einen **negativen Wert**.
+
+* Es ist intuitiver, Verbesserungen mit **positiven Zahlen** zu repräsentieren.
+
+* Als Quantifizierung des Therapieeffekts bei Proband:in $i$ bietet sich also folgendes Maß an
+
+\begin{equation}
+\Delta \mbox{BDI[i]} := - (\mbox{Post.BDI[i]} - \mbox{Pre.BDI[i]})
+\end{equation}
+
+* Wir betrachten in der Folge also das $\Delta \mbox{BDI}$ Maß mit folgenden Interpretationen
+
+\center
+\begin{tabular}{lll}
+$\Delta \mbox{BDI} > 0$ & Verminderung der Depressionsymptomatik       & Wirksame Therapie      \\
+$\Delta \mbox{BDI} = 0$ & Keine Veränderung der Depressionsymptomatik  & Wirkungslose Therapie  \\
+$\Delta \mbox{BDI} < 0$ & Verstärkung der Depressionsymptomatik        & Schädigende Therapie   \\
+\end{tabular}
+
+
+# Datenvorverarbeitung
+\vspace{1mm}
+
+\small
+Hinzufügen einer $\Delta\mbox{BDI}$ Spalte zum Dataframe
+\vspace{1mm}
+
+\footnotesize
+```{r, eval = T}
+#| label: Das Delta BDI Maß
+D$Delta.BDI <- -(D$Post.BDI - D$Pre.BDI)                                  # \Delta BDI Maß
+```
+
+\small
+Daten der ersten acht Proband:innen jeder Gruppe
+\vspace{1mm}
+
+\tiny
+\setstretch{0.9}
+```{r, echo = F, eval = T}
+head(D[D$Bedingung == "Klassisch", ], 8)
+head(D[D$Bedingung == "Online", ], 8)
+```
+
+\tiny
+\setstretch{1}
+```{r, echo = F, eval = F}
+#| label: table visualization
+knitr::kable(D[c(1:8, 51:58),],
+             align      = "cccc",
+             "pipe")
+```
+
+
 
 \AtBeginSection{}
 \section{Häufigkeitsverteilungen}
@@ -851,17 +914,17 @@ Quantile und Boxplots
 \begin{definition}[Kumulative absolute und relative Häufigkeitsverteilungen]
 \justifying
 $y = (y_1,...,y_n)$ sei ein Datensatz, $W := \{w_1,...,w_k\}$ mit $k \le n$ die 
-im Datensatz vorkommenden Zahlenwerte und $h$ und $r$ die absoluten und 
+im Datensatz vorkommenden Werte und $h$ und $r$ die absoluten und 
 relativen Häufigkeitsverteilungen der Werte von $y$, respektive. 
 Dann heißt die Funktion
 \begin{equation}
 H : W \to \mathbb{N}, w \mapsto H(w) := \sum_{w' \le w} h(w')
 \end{equation}
-die \textit{kumulative absolute Häufigkeitsverteilung} von $y$ und die Funktion
+die \textit{kumulative absolute Häufigkeitsverteilung} der Werte von $y$ und die Funktion
 \begin{equation}
 R : W \to [0,1], w \mapsto R(w) : =\sum_{w' \le w} r(w')
 \end{equation}
-die \textit{kumulative relative Häufigkeitsverteilung} der Zahlwerte von $y$.
+die \textit{kumulative relative Häufigkeitsverteilung} der Werte von $y$.
 \end{definition}
 
 Bemerkung
