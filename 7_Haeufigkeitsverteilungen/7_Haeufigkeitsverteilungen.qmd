@@ -119,7 +119,7 @@ Quantile und Boxplots
 * \justifying Die Deskriptive Statistik ist die *beschreibende* Statistik.
 * Ziel ist es, Daten der menschlichen Betrachtung zugänglich zu machen.
 * Reine Zahlendarstellungen sind bei großen Datensätzen schwer zu erfassen.
-* Deskriptivstatistiken bieten graphische Darstellungen und zusammenfassende Maßzahlen, die charakteristische Aspekte eines Datensatzes wie seine "durchschnittlicher" Wert oder seine Variabilität beschreiben.
+* Deskriptivstatistiken bieten graphische Darstellungen und zusammenfassende Maßzahlen, die charakteristische Aspekte eines Datensatzes wie seinen "durchschnittlicher" Wert oder seine Variabilität beschreiben.
 
 \normalsize
 \textcolor{darkblue}{Typische Methoden der Deskriptiven Statistik}
@@ -140,7 +140,7 @@ Quantile und Boxplots
 * \justifying Die Deskriptive Statistik basiert nicht auf der Wahrscheinlichkeitstheorie.
 * Allerdings ergeben viele Aspekte der Deskriptivstatistik erst vor dem Hintergrund wahrscheinlichkeitstheoretischer Betrachtungen Sinn.
 * Umgekehrt sind viele Begriffe der Wahrscheinlichkeitstheorie durch deskriptivstatistische Konzepte motiviert.
-* Auch wenn diese Einheit ohne wahrscheinlichkeitstheoretischen Hintergrund auskommt, erschließt sich seine volle Bedeutung erst im Kontext der auskommt.
+* Auch wenn diese Einheit ohne wahrscheinlichkeitstheoretischen Hintergrund auskommt, erschließt sich seine volle Bedeutung erst im Kontext der Begriffe der Wahrscheinlichkeitstheorie.
 
 \vfill
 
@@ -221,6 +221,7 @@ write.csv(D, file = dateiname, row.names = F)
 Einlesen des Datensatzes mit `read.table()`
 \vspace{1mm}
 
+\footnotesize
 ```{r echo=FALSE, eval = T}
 datenordner <- file.path(dirname(getwd()), "Daten")
 ```
@@ -232,13 +233,17 @@ D         <- read.csv(dateipfad)
 ```
 
 
-\small
+\normalsize
 Daten der ersten acht Proband:innen jeder Gruppe
+\vspace{3mm}
 
 \tiny
 \setstretch{0.9}
-```{r, echo = F, eval = T}
+```{r, echo = T, eval = T}
 head(D[D$Bedingung == "Klassisch", ], 8)
+```
+\vspace{3mm}
+```{r, echo = T, eval = T}
 head(D[D$Bedingung == "Online", ], 8)
 ```
 
@@ -478,7 +483,7 @@ abb_ausgabepfad   <- file.path(          # Absoluter Pfad zur Zieldatei im Skrip
   "pds_7_ah_prebdi.pdf"
 )
 
-# Variante 2: Dateinamen in einem Unterverzeichnis "Abbildungen" erstellen
+# Variante 2: Dateinamen in einem Unterverzeichnis "Abbildungen" im Arbeitsverzeichnis erstellen
 abbildungsordner  <- file.path(          # Absoluter Pfad zum Unterverzeichnis "Abbildungen"
   getwd(),                               # Im Beispiel hier: im aktuellen working directory
   "VL_Abbildungen"
@@ -1283,7 +1288,7 @@ y_{0.80} = \frac{1}{2} \left( y_{(8)} + y_{(8 + 1)}\right) = \frac{1}{2}\left(y_
 \vfill
 \flushright
 \tiny
-(@henze_2018, Kapitel 5)
+[@henze_2018, Kapitel 5]
 
 
 # Quantilsbestimmung in R
@@ -1318,7 +1323,7 @@ cat("0.80 Quantil: ", round(y_p,2))                         # Ausgabe
 \footnotesize
 `quantile()` wertet Quantile anhand der Quantildefinition `type` aus.
 
-Es gibt mindestens neun verschiedene Quantildefinitionen (cf. @hyndman_1996)
+Es gibt mindestens neun verschiedene Quantildefinitionen [vgl. @hyndman_1996]
 \setstretch{1}
 \tiny
 ```{r, eval = T}
@@ -1515,7 +1520,7 @@ dev.copy2pdf(
 
 
 \footnotesize
-Es gibt viele Boxplotvariationen (cf. @mcgill_1978). Es sollte immer erläutert werden, welche Kennzahlen dargestellt werden!
+Es gibt viele Boxplotvariationen [vgl. @mcgill_1978]. Es sollte immer erläutert werden, welche Kennzahlen dargestellt werden!
 
 # Referenzen
 \small
