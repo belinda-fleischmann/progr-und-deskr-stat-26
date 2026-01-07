@@ -15,14 +15,20 @@ format:
 ## Häufigkeitsverteilungen
 
 \begin{enumerate}
-\item Visualisieren Sie die absoluten und relativen Häufigkeitsverteilungen der Post-BDI-Daten des Datensatzes \textit{psychotherapie\_datensatz.csv}. Speichern Sie die erstellten Diagramme als PDF-Dateien in einem Verzeichnis \textit{Abbildungen}, der sich auf der selben Ebene befindet wie Ihr Skriptordner. Dieser
-Ordner wird im Folgenden als Abbildungsordner bezeichnet. Verwenden Sie für die Dateinamen \textit{haeufigkeit\_absolut\_post\_bdi.pdf} für die absolute und \textit{haeufigkeit\_relativ\_post\_bdi.pdf} für die relative Häufigkeitsverteilung. Achten Sie darauf, die Achsentitel und Legenden klar und beschreibend zu gestalten, sodass die dargestellten Inhalte eindeutig erkennbar sind.
+\item Visualisieren Sie die absolute 
+%und relativen 
+Häufigkeitsverteilung der Post-BDI-Daten des Datensatzes \textit{psychotherapie\_datensatz.csv}. Speichern Sie das erstellte Diagramm als PDF-Datei in einem Verzeichnis \textit{Abbildungen}, der sich auf der selben Ebene befindet wie Ihr Skriptordner. Dieser
+Ordner wird im Folgenden als Abbildungsordner bezeichnet. Verwenden Sie \textit{haeufigkeit\_absolut\_post\_bdi.pdf} als Dateiname. 
+% Verwenden Sie für die Dateinamen \textit{haeufigkeit\_absolut\_post\_bdi.pdf} für die absolute und \textit{haeufigkeit\_relativ\_post\_bdi.pdf} für die relative Häufigkeitsverteilung. 
+Achten Sie auf klare Achsentitel, sodass die dargestellten Inhalte eindeutig erkennbar sind.
 
-\item Berechnen Sie die Differenzen zwischen Post- und Pre-BDI-Daten für jeden Patienten (\texttt{Post.BDI} minus \texttt{Pre.BDI}) und speichern Sie diese in einer neuen Variablen. 
+\item Berechnen Sie für alle Patient:innen die Differenz Pre-BDI minus Post-BDI und speichern Sie diese in einer neuen Spalte \texttt{Delta.BDI} im Dataframe. Eine positive Differenz entspricht einer Reduktion der Depressionssymptome.
 
 % \item Visualisieren Sie anschließend die absoluten und relativen Häufigkeitsverteilungen dieser Differenzen und speichern Sie die entsprechenden Diagramme im Abbildungsordner. Verwenden Sie für die Dateinamen \textit{haeufigkeit\_absolut\_diff\_bdi.pdf} und \textit{haeufigkeit\_relativ\_diff\_bdi.pdf}.
 
-\item Visualisieren Sie die Häufigkeitsverteilungen der BDI-Differenzen getrennt nach den experimentellen Bedingungen \textquote{Klassisch} und \textquote{Online}. Nutzen Sie dazu Indizierung in R, um die Daten nach der Spalte \texttt{Bedingung} zu filtern. Speichern Sie die erstellten Diagramme im Abbildungsordner und benennen Sie die Dateien so, dass die jeweilige Bedingung eindeutig erkennbar ist, zum Beispiel \textit{haeufigkeit\_diff\_bdi\_klassisch.pdf}.
+% \item Visualisieren Sie die Häufigkeitsverteilungen der BDI-Differenzen getrennt nach den experimentellen Bedingungen \textquote{Klassisch} und \textquote{Online}. Nutzen Sie dazu Indizierung in R, um die Daten nach der Spalte \texttt{Bedingung} zu filtern. Speichern Sie die erstellten Diagramme im Abbildungsordner und benennen Sie die Dateien so, dass die jeweilige Bedingung eindeutig erkennbar ist, zum Beispiel \textit{haeufigkeit\_diff\_bdi\_klassisch.pdf}.
+
+\item Visualisieren Sie die relative Häufigkeitsverteilung der BDI-Differenzen für die experimentelle Bedingung \textquote{Klassisch}. Nutzen Sie dazu Indizierung in R, um die Daten nach der Spalte \texttt{Bedingung} zu filtern. Speichern Sie das erstellte Diagramm im Abbildungsordner und benennen Sie die Datei als \textit{haeufigkeit\_diff\_bdi\_klassisch.pdf}.
 
 % \item Beschreiben Sie die in den vorherigen Aufgaben erstellten Häufigkeitsverteilungen schriftlich in einem Kommentar in Ihrem R-Skript. Gehen Sie dabei auf Unterschiede in Form, Lage und Streuung ein und vergleichen Sie insbesondere die Verteilungen zwischen den beiden Therapiebedingungen.
 \end{enumerate}
@@ -32,33 +38,33 @@ Ordner wird im Folgenden als Abbildungsordner bezeichnet. Verwenden Sie für die
 
 \begin{enumerate}
 \setcounter{enumi}{3}
-\item Erstellen Sie Histogramme der BDI-Differenzen (Post.BDI minus Pre.BDI) mit mindestens zwei verschiedenen Methoden zur Festlegung der Klassengröße oder -anzahl, zum Beispiel nach der Sturges-, Scott- oder Freedman-Diaconis-Regel oder mit manuell festgelegten Klassenbreiten. Beschriften Sie alle Diagramme mit aussagekräftigen Achsenbeschriftungen und einem Titel, der die verwendete Methode angibt. Speichern Sie die Histogramme im Abbildungsorder. Beispielhafte Dateinamen sind \textit{hist\_diff\_bdi\_sturges.pdf}, \textit{hist\_diff\_bdi\_scott.pdf} und \textit{hist\_diff\_bdi\_fd.pdf}.
+\item Erstellen Sie Histogramme der BDI-Differenzen mit mindestens zwei verschiedenen Methoden zur Festlegung der Klassengröße oder -anzahl, zum Beispiel nach der Sturges-, Scott- oder Freedman-Diaconis-Regel oder mit manuell festgelegten Klassenbreiten. Beschriften Sie alle Diagramme mit aussagekräftigen Achsenbeschriftungen und einem Titel, der die verwendete Methode angibt. Speichern Sie die Histogramme im Abbildungsordner. Beispielhafte Dateinamen sind \textit{hist\_diff\_bdi\_sturges.pdf}, \textit{hist\_diff\_bdi\_scott.pdf} und \textit{hist\_diff\_bdi\_fd.pdf}.
 
 % \item Vergleichen Sie die erstellten Histogramme schriftlich in einem Kommentar in Ihrem R-Skript. Notieren Sie, wie die Wahl der Klassengrößen und -anzahlen die Form der Verteilungen beeinflusst. Geben Sie an, welche Methode für die vorliegenden Daten am geeignetsten erscheint und warum.
 
-\item Erstellen Sie Histogramme der absoluten Häufigkeiten der BDI-Differenzen getrennt für die Therapiebedingungen \textquote{Klassisch} und \textquote{Online}. Verwenden Sie für beide Histogramme dieselbe Klasseneinteilung, um die Vergleichbarkeit sicherzustellen. Speichern Sie die Diagramme im Abbildungsordner unter den Namen \textit{hist\_diff\_bdi\_klassisch.pdf} und \textit{hist\_diff\_bdi\_online.pdf}.
+% \item Erstellen Sie Histogramme der absoluten Häufigkeiten der BDI-Differenzen getrennt für die Therapiebedingungen \textquote{Klassisch} und \textquote{Online}. Verwenden Sie für beide Histogramme dieselbe Klasseneinteilung, um die Vergleichbarkeit sicherzustellen. Speichern Sie die Diagramme im Abbildungsordner unter den Namen \textit{hist\_diff\_bdi\_klassisch.pdf} und \textit{hist\_diff\_bdi\_online.pdf}.
 \end{enumerate}
 
 
 ## Verteilungsfunktionen und Quantile
 
 \begin{enumerate}
-\setcounter{enumi}{5}
-\item Berechnen Sie die kumulativen absoluten und relativen Häufigkeitsverteilungen der Post-BDI-Daten und visualisieren Sie beide in separaten Diagrammen. Speichern Sie die Diagramme im Abbildungsordner mit den Dateinamen \textit{kumulative\_absolut\_post\_bdi.pdf} und \textit{kumulative\_relativ\_post\_bdi.pdf}.
-\item Erzeugen Sie die empirische Verteilungsfunktion (EVF) der Post-BDI-Daten mithilfe der Funktion \texttt{ecdf()}. Wenden Sie die EVF auf die Werte 1, 18, 63 und 120 an. Speichern Sie die vier Funktionswerte in einer Variablen und geben Sie diese aus.
+\setcounter{enumi}{4}
+% \item Berechnen Sie die kumulativen absoluten und relativen Häufigkeitsverteilungen der Post-BDI-Daten und visualisieren Sie beide in separaten Diagrammen. Speichern Sie die Diagramme im Abbildungsordner mit den Dateinamen \textit{kumulative\_absolut\_post\_bdi.pdf} und \textit{kumulative\_relativ\_post\_bdi.pdf}.
+\item Berechnen Sie die kumulativen absoluten und relativen Häufigkeitsverteilungen der Post-BDI-Daten. Visualisieren Sie die relative kumulative Häufigkeitsverteilung und speichern Sie das Diagramm im Abbildungsordner mit dem Dateinamen \textit{kumulative\_relativ\_post\_bdi.pdf}.
+\item Erzeugen Sie die empirische Verteilungsfunktion (EVF) der Post-BDI-Daten mithilfe der Funktion \texttt{ecdf()}. Wenden Sie die EVF auf die Werte 1, 12, 14, 18, und 63 an. Speichern Sie die fünf Funktionswerte in einer Variablen und geben Sie diese aus.
 
 %\begin{itemize}
 %  \item Visualisieren Sie die EVF und speichern Sie das Diagramm im Abbildungsordner als \textit{evf\_post\_bdi.pdf}.
-%  \item Wenden Sie die EVF auf die Werte 1, 18, 63 und 120 an. Speichern Sie die vier Funktionswerte in einer Variablen und geben Sie diese aus. 
+%  \item Wenden Sie die EVF auf die Werte 1, 12, 14, 18, und 63 an. Speichern Sie die fünf Funktionswerte in einer Variablen und geben Sie diese aus.
 %  \item Kommentieren Sie in Ihrem R-Skript, welche Aussage diese Funktionswerte über die Verteilung der Post-BDI-Werte treffen.
 %\end{itemize}
 %\item Berechnen Sie das obere Quartil (75\%-Quantil) des Beispieldatensatzes \texttt{c(8.5, 1.5, 12, 4.5, 6.0, 3.0, 3.0, 2.5, 6.0, 9.0)} manuell, ohne Verwendung der Funktion \texttt{quantile()}, und dokumentieren Sie Ihre Rechenschritte in Kommentaren.
 
-\item Berechnen Sie das untere Quartil (25\%-Quantil), den Median (50\%-Quantil) und das obere Quartil (75\%-Quantil) der Post-BDI-Daten mithilfe von \texttt{quantile()}. Vergleichen Sie die Ergebnisse mit der Ausgabe der Funktion \texttt{summary()} für dieselben Daten und dokumentieren Sie Unterschiede in einem Kommentar.
+\item Berechnen Sie das untere Quartil (25\%-Quantil), den Median (50\%-Quantil) und das obere Quartil (75\%-Quantil) der Post-BDI-Daten mithilfe von \texttt{quantile()}. Vergleichen Sie die Ergebnisse mit der Ausgabe der Funktion \texttt{summary()} für dieselben Daten.
 
 %\item Erstellen Sie einen Boxplot der Post-BDI-Daten und speichern Sie das Diagramm als \textit{boxplot\_post\_bdi.pdf} im Abbildungsordner. Kommentieren Sie die wichtigsten Merkmale des Boxplots, wie Median, Quartile, Ausreißer und Symmetrie der Verteilung.
 
-%\item Erstellen Sie einen Boxplot der BDI-Differenzen (Post.BDI minus Pre.BDI) getrennt nach den beiden Therapiebedingungen \textquote{Klassisch} und \textquote{Online} in einem gemeinsamen Diagramm. Dies ermöglicht einen
-direkten visuellen Vergleich der Therapieeffekte. Speichern Sie das Diagramm als \textit{boxplot\_diff\_bdi\_bedingungen.pdf} im Abbildungsordner und kommentieren Sie, welche Therapiebedingung tendenziell zu größeren Verbesserungen (negativere Differenzen) führt.
+%\item Erstellen Sie einen Boxplot der BDI-Differenzen (Post.BDI minus Pre.BDI) getrennt nach den beiden Therapiebedingungen \textquote{Klassisch} und \textquote{Online} in einem gemeinsamen Diagramm. Dies ermöglicht einen direkten visuellen Vergleich der Therapieeffekte. Speichern Sie das Diagramm als \textit{boxplot\_diff\_bdi\_bedingungen.pdf} im Abbildungsordner und kommentieren Sie, welche Therapiebedingung tendenziell zu größeren Verbesserungen (negativere Differenzen) führt.
 
 \end{enumerate}
