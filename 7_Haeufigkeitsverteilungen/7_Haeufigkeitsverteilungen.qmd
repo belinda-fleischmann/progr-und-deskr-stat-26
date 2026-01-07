@@ -1463,7 +1463,7 @@ cat("0.80 Quantil mit type=1 bestimmt: ",y_p_1,
 \small
 Ein Boxplot visualisiert eine Quantil-basierte Zusammenfassung eines Datensatzes.
 
-Typischerweise werden $\min y, y_{0.25}, y_{0.50}, y_{0.75} und \max y$ visualisiert.
+Typischerweise werden $\min y, y_{0.25}, y_{0.50}, y_{0.75} \mbox{und} \max y$ visualisiert.
 
 * $\min y$ und $\max y$ werden oft als "Whiskerendpunkte" dargestellt.
 * $y_{0.25}$ und $y_{0.75}$ sind untere und obere Grenze der zentralen grauen Box.
