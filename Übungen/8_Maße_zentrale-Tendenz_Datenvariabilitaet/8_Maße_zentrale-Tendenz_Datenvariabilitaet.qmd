@@ -46,6 +46,7 @@ format:
 ## Visualisierung deskriptiver Statistiken
 
 \begin{enumerate}
+\setcounter{enumi}{6}
 \item Erstellen Sie ein Balkendiagramm mit Fehlerbalken, das die Mittelwerte und Standardabweichungen der Variable \texttt{Delta.BDI} für die beiden Therapiebedingungen \textquote{Klassisch} und \textquote{Online} darstellt. Extrahieren Sie die Mittelwerte und Standardabweichungen aus dem zuvor erstellten Dataframe. Verwenden Sie \texttt{barplot()} zur Darstellung der Mittelwerte und \texttt{arrows()} für die Fehlerbalken. Achten Sie auf passende Achsenbeschriftungen und einen aussagekräftigen Titel. Speichern Sie das Diagramm im Unterordner \texttt{Abbildungen} unter dem Dateinamen \texttt{balkendiagramm\_delta\_bdi.pdf}.
 
 \item Erstellen Sie Boxplots, die die Verteilung der \texttt{Delta.BDI}-Werte für die beiden Therapiebedingungen \textquote{Klassisch} und \textquote{Online} nebeneinander darstellen. Verwenden Sie das Argument \texttt{formula} in \texttt{boxplot()} zur Gruppierung der \texttt{Delta.BDI-Werte} nach Therapiebedingungen. Beschriften Sie die Achsen und den Titel passend und speichern Sie das Diagramm im Unterordner \texttt{Abbildungen} unter dem Dateinamen \texttt{boxplots\_delta\_bdi.pdf}.
