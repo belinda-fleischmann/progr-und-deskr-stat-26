@@ -837,7 +837,7 @@ cat("Spannbreite der Pre.BDI Daten: ", r)       # Ausgabe
 ```
 
 
-# Stichprobenvarianz
+# Empirische Varianz
 \footnotesize
 \begin{definition}[Unkorrigierte empirische Varianz und empirische Varianz]
 \justifying
@@ -922,10 +922,10 @@ gilt also
 \end{equation}
 
 
-# Berechnen der Stichprobenvarianz in R
+# Berechnen der empirische Varianz in R
 
 \vspace{2mm}
-Bestimmung der Stichprobenvarianz anhand der in \eqref{eq:varianz_unkorr.} und \eqref{eq:varianz} festgelegten Formeln
+Bestimmung der empirischen Varianz anhand der in \eqref{eq:varianz_unkorr.} und \eqref{eq:varianz} festgelegten Formeln
 \vspace{2mm}
 
 \tiny
@@ -942,7 +942,7 @@ cat("Unkorrigierte empirische Varianz von y:", round(s2_tilde,3), # Ausgabe
 
 \vspace{2mm}
 \normalsize
-Bestimmung der Stichprobenvarianz mit `var()`
+Bestimmung der empirischen Varianz mit `var()`
 \vspace{2mm}
 
 \tiny
@@ -954,9 +954,9 @@ cat("Unkorrigierte empirische Varianz von y:", round(s2_tilde,3), # Ausgabe
     "\nEmpirische Varianz von y              :", round(s2,3))
 ```
 
-# Stichprobenvarianz bei linear-affinen Transformationen
+# Empirische Varianz bei linear-affinen Transformationen
 \footnotesize
-\begin{theorem}[Stichprobenvarianz bei linear-affinen Transformationen]
+\begin{theorem}[Empirische Varianz bei linear-affinen Transformationen]
 \justifying
 \normalfont
 $y = (y_1,...,y_n)$ sei ein Datensatz mit empirischer Varianz $s_y^2$ 
@@ -985,8 +985,8 @@ s^2_z
 
 
 
-# Stichprobenvarianz bei linear-affinen Transformationen
-\textcolor{darkcyan}{Beispiel: Stichprobenvarianz bei linear-affinen Transformationen}
+# Empirische Varianz bei linear-affinen Transformationen
+\textcolor{darkcyan}{Beispiel: Empirische Varianz bei linear-affinen Transformationen}
 
 \tiny
 \vspace{2mm}
@@ -1059,7 +1059,7 @@ cat("Unkorrigierte empirische Varianz nach Definition       :",       # Ausgabe
 ```
 \vspace{3mm}
 ```{r, eval = T}
-# Berechnung der unkorrigierten empirischen Stichprobenvarianz mit Theorem
+# Berechnung der unkorrigierten empirischen Varianz mit Theorem
 s2_tilde <- mean(y^2) - (mean(y))^2                                   # \bar{y^2} - \bar{y}^2
 cat("Unkorrigierte empirische Varianz nach Verschiebungssatz:",       # Ausgabe
     round(s2_tilde,3))
@@ -1067,11 +1067,11 @@ cat("Unkorrigierte empirische Varianz nach Verschiebungssatz:",       # Ausgabe
 \vspace{3mm}
 
 \footnotesize
-Das Theorem gilt nicht für die Stichprobenvarianz
+Das Theorem gilt nicht für die empirische Varianz
 \vspace{1mm}
 \tiny
 ```{r, eval = T}
-# Berechnung der empirischen Stichprobenvarianz
+# Berechnung der empirischen Varianz
 s2       <- var(y)                                                    # s^2 \neq \bar{y^2} - \bar{y}^2
 cat("Empirische Varianz:", round(s2,3))                               # Ausgabe
 ```
@@ -1086,7 +1086,7 @@ $y$ ist definiert als
 \begin{equation}\label{eq:standardabweichung}
 s := \sqrt{s^2}
 \end{equation}
-und die \textit{unkorrigierte empirische Stichprobenstandardabweichung} von $y$ ist 
+und die \textit{unkorrigierte empirische Standardabweichung} von $y$ ist 
 definiert als 
 \begin{equation}\label{eq:standardabweichung_unkorr.}
 \tilde{s} := \sqrt{\tilde{s}^2}.
@@ -1176,7 +1176,7 @@ Also gilt $s_z = as_y$, wenn $a \ge 0$ und $s_z = -as_y$, wenn $a < 0$. Dies abe
 \tiny
 \setstretch{1}
 ```{r, eval = T}
-#| label: lin.-affine Transformation Stichprobenstandardabweichung
+#| label: lin.-affine Transformation Standardabweichung
 # a >= 0
 y   <- D$Pre.BDI                                                       # Pre-Interventions-BDI-II-Daten
 a   <- 2                                                               # Multiplikationskonstante
