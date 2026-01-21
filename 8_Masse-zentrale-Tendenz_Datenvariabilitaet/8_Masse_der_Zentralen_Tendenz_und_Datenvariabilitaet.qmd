@@ -1146,7 +1146,7 @@ print(s_tilde)
 \justifying
 \normalfont
 $y = (y_1,...,y_n)$ sei ein Datensatz mit empirischer Standardabweichung $s_y$ und
-$z = (az_1+b, ..., az_n+b)$ sei der mit $a,b \in \mathbb{R}$ linear-affin
+$z = (ay_1+b, ..., ay_n+b)$ sei der mit $a,b \in \mathbb{R}$ linear-affin
 transformierte Datensatz mit empirischer Standardabweichung $s_z$. Dann gilt
 \begin{equation}
 s_z = |a| s_y.
