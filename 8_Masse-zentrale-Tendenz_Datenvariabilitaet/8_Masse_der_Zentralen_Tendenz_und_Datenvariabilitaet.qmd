@@ -454,7 +454,7 @@ cat("Mittelwert und Median für Datensatz mit Ausreißer:",   # Ausgabe
 $y := (y_1,...,y_n)$ mit $y_i \in \mathbb{R}$ sei ein Datensatz, $W := \{w_1,...,w_k\}$ 
 mit $k \le n$ seien die im Datensatz vorkommenden verschiedenen Zahlenwerte und
 $h : W \to \mathbb{N}$ sei die absolute Häufigkeitsverteilung der Zahlwerte von $y$.
-Dann ist der *Modalwert (oder Modus)* von $y$ definiert als
+Dann ist der \textit{Modalwert (oder Modus)} von $y$ definiert als
 \begin{equation}
 \mbox{argmax}_{w \in W} h(w),
 \end{equation}
@@ -473,14 +473,15 @@ Bestimmung des Modalwertes in R
 \footnotesize
 ```{r, eval = T}
 #| label: modalwert
-y        <- D$Pre.BDI                      # Pre-Interventions-BDI-II-Daten
-n        <- length(y)                      # Anzahl der Datenwerte (100)
-H        <- as.data.frame(table(y))        # absolute Haeufigkeitsverteilung (dataframe)
-names(H) <- c("a", "h")                    # Konsistente Benennung
-mode     <- H$a[which.max(H$h)]            # Modalwert
+y        <- D$Pre.BDI                         # Pre-Interventions-BDI-II-Daten
+n        <- length(y)                         # Anzahl der Datenwerte (100)
+H        <- as.data.frame(table(y))           # absolute Haeufigkeitsverteilung (dataframe)
+names(H) <- c("a", "h")                       # Konsistente Benennung
+mode_a   <- H$a[which.max(H$h)]               # Modalwert Alt. a 
+mode_b   <- H$a[H$h == max(H$h)]              # Modalwert Alt. b (falls  mehrerer Maxima)
 
-cat("Modalwert der PRE-BDI-II-Daten: ",    # Ausgabe als numeric vector, nicht factor
-    as.numeric(as.vector(mode)))
+cat("Modalwert der PRE-BDI-II-Daten über: ",  # Ausgabe als numeric vector, nicht factor
+    as.numeric(as.vector(mode_a)))
 ```
 
 
