@@ -165,7 +165,7 @@ Dann gelten
 (2) Die absoluten Summen negativer und positiver Abweichungen vom Mittelwert 
 sind gleich, d.h. wenn $j = 1,...,n_j$ die Datenpunktindizes mit $(y_j - \bar{y}) < 0$ 
 und $k = 1,...,n_k$ die Datenpunktindizes mit $(y_k - \bar{y}) \ge 0$ bezeichnen, 
-dann gilt mit $n_j + n_k$, dass
+dann gilt mit $n = n_j + n_k$, dass
 \begin{equation}
 \vert\sum_{j = 1}^{n_j} (y_j - \bar{y})\vert = \vert\sum_{k = 1}^{n_k} (y_k - \bar{y})\vert.
 \end{equation}
