@@ -47,9 +47,9 @@ format:
 
 \begin{enumerate}
 \setcounter{enumi}{4}
-\item Erstellen Sie ein Balkendiagramm, das die Mittelwerte und Standardabweichungen der Variable \texttt{Delta.BDI} für die beiden Therapiebedingungen \textquote{Klassisch} und \textquote{Online} darstellt. Extrahieren Sie die Mittelwerte und Standardabweichungen aus dem Dataframe \texttt{deskr\_stat}. Verwenden Sie \texttt{barplot()} zur Darstellung der Mittelwerte. Achten Sie auf passende Achsenbeschriftungen und einen aussagekräftigen Titel. Speichern Sie das Diagramm im Unterordner \texttt{Abbildungen} unter dem Dateinamen \texttt{balkendiagramm\_delta\_bdi.pdf}.
+\item Erstellen Sie ein Balkendiagramm, das die Mittelwerte der Variable \texttt{Delta.BDI} für die beiden Therapiebedingungen \textquote{Klassisch} und \textquote{Online} darstellt. Extrahieren Sie die Mittelwerte aus dem Dataframe \texttt{deskr\_stat}. Verwenden Sie \texttt{barplot()} zur Darstellung der Mittelwerte. Achten Sie auf passende Achsenbeschriftungen und einen aussagekräftigen Titel. Speichern Sie das Diagramm im Unterordner \texttt{Abbildungen} unter dem Dateinamen \texttt{balkendiagramm\_delta\_bdi.pdf}.
 
-\textit{Bonusaufgabe:} Verwenden Sie \texttt{arrows()}, um dem Balkendiagramm Fehlerbalken hinzuzufügen. Der Befehl könnte in etwa aussehen wie folgt, wobei Sie gegebenenfalls Variablenbezeichnungen anpassen müssen:
+\textit{Bonusaufgabe:} Fügen Sie dem Balkendiagramm Fehlerbalken hinzu, um die Standardabweichungen der Mittelwerte zu visualisieren. Verwenden Sie dafür \texttt{arrows()}. Extrahieren Sie die Standardabweichungen aus dem Dataframe \texttt{deskr\_stat}. Der Befehl könnte in etwa aussehen wie folgt, wobei Sie gegebenenfalls Variablenbezeichnungen anpassen müssen:
 
   \footnotesize
   \begin{verbatim}
